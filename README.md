@@ -59,4 +59,5 @@ project te kunnen uitvoeren:
 ## Bronnenlijst
 - De officiele documentatie van [Flame](https://docs.flame-engine.org/latest/).
 - De officiele documentatie van [Flutter](https://docs.flutter.dev/).
-- Youtube gratis lessen/tutorials.
+- De officiele documentatie van [Dart](https://dart.dev/guides).
+- Flutter tutorial op [youtube](https://www.youtube.com/watch?v=VPvVD8t02U8&t=32919s).
