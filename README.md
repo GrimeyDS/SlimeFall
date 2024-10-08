@@ -1,7 +1,7 @@
 # Down you go (placeholder name)
 
 ## Verantwoording
-Voor mijn project zou ik graag een kleine game maken in Dart/Flutter met de game enginge Flame voor android. Door geen de opleiding ben ik enkel maar bezig geweest met statische elementen (bv. Formulieren), om mij grenzen te verleggen zou ik nu graag eens iets dynamisch en (audio)visueel programmeren. Om het toch innovatief te maken voor de opleiding zou ik dit verwezenlijken in een andere programeer taal.
+Voor mijn project zou ik graag een kleine game maken in Dart/Flutter met de game engine Flame voor android. Door geen de opleiding ben ik enkel maar bezig geweest met statische elementen (bv. Formulieren), om mij grenzen te verleggen zou ik nu graag eens iets dynamisch en (audio)visueel programmeren. Om het toch innovatief te maken voor de opleiding zou ik dit verwezenlijken in een andere programeer taal.
 
 ## Project
 Het zou een auto-scroller game zijn waarbij het scherm naar beneden scrolled. De speler is een object/figuur die je via gyro controls manoeuvreert. Je kan hierbij naar links/rechts manoeuvreren, maar ook sneller naar beneden of terug naar boven gaan. Obstakels zullen je proberen tegen te houden en het is “game over” als de speler de bovenkant van het scherm aanraakt of de spikes aan de zijkant.
