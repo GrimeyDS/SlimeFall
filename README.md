@@ -60,4 +60,5 @@ project te kunnen uitvoeren:
 - De officiele documentatie van [Flame](https://docs.flame-engine.org/latest/).
 - De officiele documentatie van [Flutter](https://docs.flutter.dev/).
 - De officiele documentatie van [Dart](https://dart.dev/guides).
+- Flutter [Conventions](https://dart.dev/effective-dart/style)
 - Flutter tutorial op [youtube](https://www.youtube.com/watch?v=VPvVD8t02U8&t=32919s).
