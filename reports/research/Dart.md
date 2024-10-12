@@ -117,4 +117,9 @@ Imports worden gebruikt om API of andere klassen in je library te gebruiken: \
 
 `// This is a comment` voor een comment te plaatsen in de code.
 
-## Diversen
+## Naming Conventions
+
+- folder: lowercase
+- files: lowercase + underscore met meerdere woorden. bv: `slime_fall_game.dart`
+- classes: UpperCamelCase. bv: `class SlimeFallGame`
+- variabelen/properties: lowerCamelCase. bv `bool hasFallDamage`
