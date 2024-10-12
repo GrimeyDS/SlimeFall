@@ -17,7 +17,6 @@ class Background extends ParallaxComponent<SlimeFallGame> {
       repeat: ImageRepeat.repeatY,
       // Set Speed
       baseVelocity: Vector2(0, Config.backGroundScrollSpeed),
-      velocityMultiplierDelta: Vector2(1.7, 1.0),
     );
   }
 }
