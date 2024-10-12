@@ -16,3 +16,13 @@ Dit doe je in de main.dart bestand zo:
 ![image](https://github.com/user-attachments/assets/3e95adee-0c17-499d-93af-7abf7df89b53)
 
 SlimeFallGame is een klasse in de class library onder de game folder.
+
+## Components
+De Flame engine werkt met een component systeem (FCS: Flame Component System) en inherit van de Component klasse.
+De voornaamste component is een `PositionComponents`. Deze wordt gebruikt om objecten op een scherm te tonen. Je kan hierbij de `position`, `size`, `scale`, `angle`, `anchor` van definieren.
+Je kan deze component ook gebruiken om childern `PositionComponents` aan toe te voegen (groeperen).
+  - `position`: is een `Vector2` type die 2 waarden bevat (x en y).
+  - `size`: De grote aanpassen en is niet in relatie met de parent.
+  - `angle`: De rotatie aanpassen.
+
+Voorbeelden van een `PositionComponents` zijn `SpriteComponent` en `SpriteAnimationComponent`.
