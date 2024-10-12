@@ -6,7 +6,7 @@ Doe je met `flutter pub add flame` in de terminal van visual studio code binnen 
 ## Assets map structuur en toevoegen van assets
 ![image](https://github.com/user-attachments/assets/0dcea873-34e0-424b-b729-b5ba84681a7c)
 
-Deze moeten ook vernoemd worden het `pubspec.yaml` bestand.
+Deze moeten ook vernoemd worden het `pubspec.yaml` bestand. \
 ![image](https://github.com/user-attachments/assets/31b67a26-3bdd-4d71-85c6-f05dc8eb3329)
 
 ## GameWidget
