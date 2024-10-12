@@ -1,20 +1,23 @@
 import 'package:flame/components.dart';
-import 'package:flame/flame.dart';
+import 'package:flutter/material.dart';
 import 'package:slime_fall/Constants/assets.dart';
+import 'package:flame/parallax.dart';
+import 'package:slime_fall/Constants/configuration.dart';
 import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
 
-class Background extends SpriteComponent with HasGameRef<SlimeFallGame> { 
-
-  // constructor
-  Background();
+class Background extends ParallaxComponent<SlimeFallGame> { 
 
   @override
   Future<void> onLoad() async{
-    final background = await Flame.images.load(Assets.background);
-
-    // Haalt de grote van scherm uit de game reference mixin (HasGameRef<SlimeFallGame>). 
-    // Deze mixin zal ons toegang geven tot verschillende properties van de game.
-    size = gameRef.size;
-    sprite = Sprite(background);
+      parallax = await game.loadParallax(
+      [
+        ParallaxImageData(Assets.background),
+      ],
+      // Make sure to repeat on y-axis or a black background will persist after the first scrolling
+      repeat: ImageRepeat.repeatY,
+      // Set Speed
+      baseVelocity: Vector2(0, Config.backGroundScrollSpeed),
+      velocityMultiplierDelta: Vector2(1.7, 1.0),
+    );
   }
 }
