@@ -7,4 +7,6 @@ class Assets {
   static const String slimeInAir = 'slime_in_air.png';
 
   static const String platform = 'platform.png';
+  static const String leftSpike = 'leftSpike.png';
+  static const String rightSpike = 'rightSpike.png';
 }

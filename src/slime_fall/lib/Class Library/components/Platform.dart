@@ -32,7 +32,7 @@ class Platform extends SpriteComponent with HasGameRef<SlimeFallGame> {
         position.x = 0;
         break;
       case Position.right:
-        // Look for right screen posistion with gameRef and subtract the x size of the platform to get the correct position.
+        // Look for right screen position with gameRef and subtract the x size of the platform to get the correct position.
         final double positionX = gameRef.size.x - size.x;
         position.x = positionX;
         break;

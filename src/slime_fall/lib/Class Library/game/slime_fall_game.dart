@@ -1,9 +1,11 @@
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:slime_fall/Constants/configuration.dart';
+import 'package:slime_fall/Constants/position.dart';
 import 'package:slime_fall/class%20library/components/background.dart';
 import 'package:slime_fall/class%20library/components/platform_group.dart';
 import 'package:slime_fall/class%20library/components/slime.dart';
+import 'package:slime_fall/class%20library/components/spike_group.dart';
 
 class SlimeFallGame extends FlameGame {
   // Interval to repeat platform spawning.
@@ -14,6 +16,9 @@ class SlimeFallGame extends FlameGame {
     addAll([
       Background(),
       Slime(),
+      SpikeGroup(Position.left),
+      SpikeGroup(Position.right),
+
       // Added manual platforms for initial spawns.
       PlatformGroup(400),
       PlatformGroup(520),
@@ -23,7 +28,7 @@ class SlimeFallGame extends FlameGame {
     ]);
 
     // Spawn new platform
-    interval.onTick = () => add(PlatformGroup(null));
+    interval.onTick = () => add(PlatformGroup(0));
   }
 
   @override
