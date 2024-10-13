@@ -4,7 +4,7 @@ import 'package:slime_fall/Constants/position.dart';
 import 'package:slime_fall/class%20library/components/spike.dart';
 import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
 
-class SpikeGroup extends SpriteGroupComponent with HasGameRef<SlimeFallGame> {
+class SpikeGroup extends PositionComponent with HasGameRef<SlimeFallGame> {
   final Position spikePosition;
   
   SpikeGroup(this.spikePosition);
@@ -13,13 +13,14 @@ class SpikeGroup extends SpriteGroupComponent with HasGameRef<SlimeFallGame> {
   Future<void> onLoad() async {
     final double spikeHeight = Config.spikeSize.y;
     final double gameHeight = gameRef.size.y;
-    final int amountOfSpike = (gameHeight / spikeHeight).toInt();
+    final int amountOfSpike = (gameHeight / spikeHeight).toInt() * 2;
+    final Set<Spike> components = {};
 
-    add(Spike(spikePosition: spikePosition, positionY: spikeHeight));
-
-    for (int spike = 1; spike >= amountOfSpike; spike++)
+    for (int spike = 1; spike <= amountOfSpike; spike++)
     {
-      add(Spike(spikePosition: spikePosition, positionY: spike * spikeHeight));
+     components.add(Spike(spikePosition: spikePosition, positionY: spike * spikeHeight));
     }
+
+    addAll(components);
   }
 }

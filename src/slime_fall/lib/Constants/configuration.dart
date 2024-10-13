@@ -2,7 +2,7 @@ import 'package:flame/components.dart';
 
 class Config {
   static Vector2 birdSize = Vector2(80, 80);
-  static Vector2 spikeSize = Vector2(30, 20);
+  static Vector2 spikeSize = Vector2(30, 40);
 
   static const double scrollSpeed = 80.0;
   static const double backgroundScrollSpeed = 100.0;

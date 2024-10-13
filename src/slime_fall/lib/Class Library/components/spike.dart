@@ -15,7 +15,7 @@ class Spike extends SpriteComponent with HasGameRef<SlimeFallGame> {
   @override
   Future<void> onLoad() async {
     size = Config.spikeSize;
-    position.y = positionY;
+    position.y = positionY / 2;
 
     switch (spikePosition) {
       case Position.left:
