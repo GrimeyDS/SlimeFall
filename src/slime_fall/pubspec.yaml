@@ -83,4 +83,5 @@ flutter:
     - assets/images/slime_walk_left.png
     - assets/images/slime_walk_right.png
     - assets/images/slime_in_air.png
-    - assets/images/spike.png
+    - assets/images/leftSpike.png
+    - assets/images/rightSpike.png
