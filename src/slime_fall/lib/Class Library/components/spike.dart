@@ -34,6 +34,7 @@ class Spike extends SpriteComponent with HasGameRef<SlimeFallGame> {
         break;
     }
 
+    // Collision hitbox
     add(RectangleHitbox());
   }
 }
