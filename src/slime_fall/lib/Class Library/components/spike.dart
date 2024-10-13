@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:slime_fall/Constants/assets.dart';
@@ -32,5 +33,7 @@ class Spike extends SpriteComponent with HasGameRef<SlimeFallGame> {
         position.x = positionX;
         break;
     }
+
+    add(RectangleHitbox());
   }
 }

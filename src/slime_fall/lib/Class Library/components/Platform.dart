@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:ui';
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:slime_fall/Constants/assets.dart';
@@ -7,7 +8,7 @@ import 'package:slime_fall/Constants/configuration.dart';
 import 'package:slime_fall/Constants/position.dart';
 import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
 
-class Platform extends SpriteComponent with HasGameRef<SlimeFallGame> {
+class Platform extends SpriteComponent with HasGameRef<SlimeFallGame>  {
 
   // Constructor with required parameters
   Platform({
@@ -37,5 +38,7 @@ class Platform extends SpriteComponent with HasGameRef<SlimeFallGame> {
         position.x = positionX;
         break;
     }
+
+    add(RectangleHitbox());
   }
 }
