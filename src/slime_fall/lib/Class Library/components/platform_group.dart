@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flame/components.dart';
 import 'package:slime_fall/Constants/configuration.dart';
-import 'package:slime_fall/Constants/platform_position.dart';
+import 'package:slime_fall/Constants/position.dart';
 import 'package:slime_fall/class%20library/components/platform.dart';
 import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
 
@@ -32,8 +32,8 @@ class PlatformGroup extends PositionComponent with HasGameRef<SlimeFallGame> {
     final double rightPlatformWidth = screenWidth - (gapPosition + Config.platformSpacing / 2);
 
     addAll([
-      Platform(width: leftPlatformWidth, platformPosition: PlatformPosition.left),
-      Platform(width: rightPlatformWidth, platformPosition: PlatformPosition.right)
+      Platform(width: leftPlatformWidth, platformPosition: Position.left),
+      Platform(width: rightPlatformWidth, platformPosition: Position.right)
     ]);
   }
 
