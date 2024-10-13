@@ -16,7 +16,7 @@ class Background extends ParallaxComponent<SlimeFallGame> {
       // Make sure to repeat on y-axis or a black background will persist after the first scrolling
       repeat: ImageRepeat.repeatY,
       // Set Speed
-      baseVelocity: Vector2(0, Config.backGroundScrollSpeed),
+      baseVelocity: Vector2(0, Config.backgroundScrollSpeed),
     );
   }
 }
