@@ -75,3 +75,13 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+  assets:
+    - assets/audio/background.mp3
+    - assets/images/background.png
+    - assets/images/platform.png
+    - assets/images/slime_idle.png
+    - assets/images/slime_walk_left.png
+    - assets/images/slime_walk_right.png
+    - assets/images/slime_in_air.png
+    - assets/images/leftSpike.png
+    - assets/images/rightSpike.png
