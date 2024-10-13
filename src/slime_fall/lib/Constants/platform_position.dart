@@ -1,0 +1,4 @@
+enum PlatformPosition {
+  left,
+  right
+}
