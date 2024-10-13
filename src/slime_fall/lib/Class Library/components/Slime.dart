@@ -9,10 +9,10 @@ class Slime extends SpriteGroupComponent<SlimeMovement> with HasGameRef<SlimeFal
   @override
   Future<void> onLoad() async {
     // Retrieve sprites.
-    final slimeIdle = await gameRef.loadSprite(Assets.slimeIdle);
-    final slimeWalkLeft = await gameRef.loadSprite(Assets.slimeWalkLeft);
-    final slimeWalkRight = await gameRef.loadSprite(Assets.slimeWalkRight);
-    final slimeInAir = await gameRef.loadSprite(Assets.slimeInAir);
+    final Sprite slimeIdle = await gameRef.loadSprite(Assets.slimeIdle);
+    final Sprite slimeWalkLeft = await gameRef.loadSprite(Assets.slimeWalkLeft);
+    final Sprite slimeWalkRight = await gameRef.loadSprite(Assets.slimeWalkRight);
+    final Sprite slimeInAir = await gameRef.loadSprite(Assets.slimeInAir);
 
     size = Config.birdSize;
 
@@ -29,7 +29,7 @@ class Slime extends SpriteGroupComponent<SlimeMovement> with HasGameRef<SlimeFal
     current = SlimeMovement.idle;
 
     // Half of screen - bird x size
-    final xStartingPosistion = gameRef.size.x / 2 - size.x /2;
+    final double xStartingPosistion = gameRef.size.x / 2 - size.x /2;
     position = Vector2(xStartingPosistion, 100);
   }
 }
