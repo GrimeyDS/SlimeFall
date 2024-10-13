@@ -7,7 +7,8 @@ import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
 
 class Slime extends SpriteGroupComponent<SlimeMovement> 
   with HasGameRef<SlimeFallGame>, CollisionCallbacks {
-
+  bool isOnPlatform = false;
+  
   @override
   Future<void> onLoad() async {
     // Retrieve sprites.
@@ -38,8 +39,28 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
   }
 
   @override
+  void update(double dt) {
+    super.update(dt);
+    
+
+    // Add gravity to slime
+    if (!isOnPlatform) {
+      position.y += Config.velocity.y * dt;
+    }
+    else {
+      position.y -= Config.scrollSpeed * dt;
+    }
+  }
+
+  @override
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
-    // TODO: implement onCollisionStart
     super.onCollisionStart(intersectionPoints, other);
+    isOnPlatform = true;
+  }
+
+  @override 
+  void onCollisionEnd(PositionComponent other) {
+    super.onCollisionEnd(other);
+    isOnPlatform = false;
   }
 }

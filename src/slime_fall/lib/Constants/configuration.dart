@@ -9,4 +9,7 @@ class Config {
   static const double platformHeight = 25.0;
   static const double platformInterval = 1.4;
   static double platformSpacing = birdSize.x * 1.3;
+
+  // How fast the player moves down when not under a platform.
+  static Vector2 velocity = Vector2(0, 500);
 }

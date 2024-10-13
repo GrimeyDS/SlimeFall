@@ -7,7 +7,7 @@ import 'package:slime_fall/class%20library/components/platform_group.dart';
 import 'package:slime_fall/class%20library/components/slime.dart';
 import 'package:slime_fall/class%20library/components/spike_group.dart';
 
-class SlimeFallGame extends FlameGame {
+class SlimeFallGame extends FlameGame with HasCollisionDetection {
   // Interval to repeat platform spawning.
   Timer interval = Timer(Config.platformInterval, repeat: true);
 

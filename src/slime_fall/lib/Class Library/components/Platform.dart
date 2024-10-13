@@ -39,6 +39,7 @@ class Platform extends SpriteComponent with HasGameRef<SlimeFallGame>  {
         break;
     }
 
+    final hitboxSize = Vector2(Config.platformHeight, 0);
     add(RectangleHitbox());
   }
 }
