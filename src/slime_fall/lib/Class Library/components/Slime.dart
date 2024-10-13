@@ -17,7 +17,7 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
     final Sprite slimeWalkRight = await gameRef.loadSprite(Assets.slimeWalkRight);
     final Sprite slimeInAir = await gameRef.loadSprite(Assets.slimeInAir);
 
-    size = Config.birdSize;
+    size = Config.slimeSize;
 
     // Assign the sprites to the group component.
     sprites =  {
