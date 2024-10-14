@@ -22,12 +22,12 @@ De Flame engine werkt met een component systeem (FCS: Flame Component System) en
 
 ### PositionComponent
 De voornaamste component is een `PositionComponent`. Deze wordt gebruikt om objecten op een scherm te tonen. Je kan hierbij de `position`, `size`, `scale`, `angle`, `anchor` van definieren.
-Je kan deze component ook gebruiken om childern `PositionComponent` aan toe te voegen (groeperen).
+Je kan deze component ook gebruiken om childern `PositionComponent` aan toe te voegen (groeperen). Gebryuikt voor platforms en spikes in het project (`spike_group.md`)
   - `position`: is een `Vector2` type die 2 waarden bevat (x en y).
   - `size`: De grote aanpassen en is niet in relatie met de parent.
   - `angle`: De rotatie aanpassen.
 
-Voorbeelden van een `PositionComponents` zijn `SpriteComponent` en `SpriteAnimationComponent`.
+Voorbeelden van subklasses van een `PositionComponents` zijn `SpriteComponent`, `SpriteAnimationComponent`, `ParallaxComponent`.
 
 ### ParallaxComponent
 Is een component dat je kan gebruiken om images te doen scrollen. Dit is enorm handing om achtergronden te maken die het effect geven dat het spelwereld beweegd.
