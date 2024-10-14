@@ -38,3 +38,17 @@ In dit voorbeeld die ik gebruik, bouw je een parallax op.
 
 ![image](https://github.com/user-attachments/assets/8d7d746f-e127-4949-97bf-3d166aea0fd9)
 
+## Collision detection en hitboxes
+In het eerste geval moeten we hitboxes toevoegen aan onze objecten. Dit kan je simpelweg met een object toe te voegen aan je reeds aangemakte objecten in de `onLoad` method.
+Voor de speler is dit een cirkel hitbox: \
+![image](https://github.com/user-attachments/assets/6fd2b0cc-a524-4e3f-b12e-57dbeac6262b)
+
+Voor de platforms en spikes zijn dit rechthoekige hitboxes: \
+![image](https://github.com/user-attachments/assets/d842817c-6cca-4feb-9547-d08e0da411b0)
+
+Om collision te detecteren op objecten kan je de mixin `HasCollisionDetection` gebruiken. Deze voegen we toe aan de speler/slime.
+Hiermee krijgen we toegang tot event triggers als de speler collided met een object: \
+![image](https://github.com/user-attachments/assets/e9d67669-25c5-413a-aab1-b7e9cb90886d)
+
+![image](https://github.com/user-attachments/assets/bf79a35b-7fc8-4891-b30c-60467f271da7)
+
