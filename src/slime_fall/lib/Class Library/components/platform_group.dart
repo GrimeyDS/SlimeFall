@@ -6,7 +6,7 @@ import 'package:slime_fall/class%20library/components/platform.dart';
 import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
 
 class PlatformGroup extends PositionComponent with HasGameRef<SlimeFallGame> {
-  final double startingPosition;
+  final int startingPosition;
   
   PlatformGroup(this.startingPosition);
 
@@ -14,10 +14,10 @@ class PlatformGroup extends PositionComponent with HasGameRef<SlimeFallGame> {
   Future<void> onLoad() async {
     // Set position to edge of bottom
     if (startingPosition == 0) {
-      position.y = gameRef.size.y;
+      position.y = gameRef.size.y * 1.5;
     }
     else {
-      position.y = startingPosition;
+      position.y = startingPosition.toDouble();
     }
 
     final double screenWidth = gameRef.size.x;

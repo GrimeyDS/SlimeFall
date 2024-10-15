@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flame/components.dart';
+import 'package:flame/extensions.dart';
 import 'package:flame/game.dart';
 import 'package:slime_fall/Class%20Library/components/top_hitbox.dart';
 import 'package:slime_fall/Constants/configuration.dart';
@@ -14,26 +15,30 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection {
   // Interval to repeat platform spawning.
   Timer interval = Timer(Config.platformInterval, repeat: true);
   final Slime slime = Slime();
-
   double gyroX = 0;
   double gyroY = 0;
 
   @override
   Future<void> onLoad() async {
+    final int fullSize = (size.y * 1.55).toInt();
+    const int initialSpawnPoint = 280;
+    const int spawnInterval = 120;
+
+    final int amountOfInitialPlatforms = ((fullSize - initialSpawnPoint) / spawnInterval).toInt();
+
     addAll([
       Background(),
       slime,
       SpikeGroup(Position.left),
       SpikeGroup(Position.right),
       TopHitbox(),
-
-      // Added manual platforms for initial spawns.
-      PlatformGroup(400),
-      PlatformGroup(520),
-      PlatformGroup(640),
-      PlatformGroup(760),
-      PlatformGroup(880),
     ]);
+
+    // Added manual platforms for initial spawns.
+    for (int platform = 1; platform <= amountOfInitialPlatforms; platform++)
+    {
+      add(PlatformGroup(initialSpawnPoint + (spawnInterval * platform)));
+    }
 
     // Spawn new platform
     interval.onTick = () => add(PlatformGroup(0));
@@ -43,7 +48,7 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection {
   void startGyroscopeListener() {
     final StreamSubscription _gyroscopeSubscription = gyroscopeEventStream().listen((GyroscopeEvent event) {
       gyroX += event.y * Config.slimeSensitivity; // event.y is rotation around the y-axis (left-right)
-      gyroY += event.x; // event.x is rotation around the x-axis (up-down)
+      //gyroY += event.x; // event.x is rotation around the x-axis (up-down)
     });
   }
 
