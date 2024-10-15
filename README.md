@@ -12,7 +12,7 @@ Omdat gyrocontroles  soms moeilijk zijn zou er ook een gesture of knop zijn om t
 ## Inhoud demo/prototype
 
 ### Score
-Je score wordt bepaald op tijd die verstreken is.
+Je score wordt bepaald op tijd die verstreken is. Je kan inloggen via Firebase en je score wordt daar ook bijgehouden.
 
 ### Obstakels
 De obstakels zullen vrij simpel zijn maar de moeilijkheid zal zitten in de frequentie dat ze opdagen. Hoe verder je zit in het spel, hoe sneller de obstakels komen. Aan de zijkant van de muren zullen er ook spikes aanwezig zijn.
@@ -21,14 +21,15 @@ De obstakels zullen vrij simpel zijn maar de moeilijkheid zal zitten in de frequ
 Via gyro kan je links/rechts/omhoog/omlaag manoeuvreren. Dashen/springen over een object zou ik graag met een shake beweging willen realiseren. Indien dit niet lukt zal het een knop op het scherm worden.
 
 ### Audio/Visueel
-De game bevat sprites en audio.
+De game bevat sprites.
 - Sprites: een achtergrond, speler, obstakels en zijwanden/spikes (deze zullen het effect tonen van beweging).
-- Audio:  achtergrondgeluid, dash geluid en tijdsinterval sound effect (versnelling).
 
 ### Nice to haves
 Als ik meer tijd zou hebben zou ik nog het volgende implementeren:
--	User login en highscores, bijgehouden met firestore.
+- Sound effects.
+- Versnelling game.
 -	Menu items om het bovenstaande te gebruiken.
+-	Retry knop.
 -	Ingewikkeldere obstakels.
 
 ## Roadmap / Planning
@@ -40,12 +41,16 @@ Als ik meer tijd zou hebben zou ik nog het volgende implementeren:
 6.	Gedrag/Collision van obstakels programmeren.
 7.	Gyro controls toevoegen aan de speler en laten bewegen.
 8.	Dash/jump implementeren.
-9.	Sound effects implementeren.
-10.	Score implementeren.
-11.	Versnelling via tijdsinterval/score implementeren.
-12.	Retry knop implementeren.
+9.	Score implementeren.
+10. Login via Firebase.
+11. Scrore bijhouden in Firestore.
 13.	Grondig testen.
-14.	De nice to have's in volgorde: Menu items > Login > Highscores > ingewikkelde obstakels.
+14.	De nice to have's in volgorde:
+    - Menu items.
+    - Versnelling via tijdsinterval/score implementeren.
+    - Retry knop implementeren.
+    - Sound effects implementeren.
+    - Ingewikkeldere obstakels.
 
 ## Extra info
 Plaats hier de nodig informatie om het
