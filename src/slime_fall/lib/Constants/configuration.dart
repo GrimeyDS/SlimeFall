@@ -4,6 +4,8 @@ class Config {
   static Vector2 slimeSize = Vector2(35, 20);
   static Vector2 spikeSize = Vector2(25, 35);
 
+  static double slimeSensitivity = 225;
+
   static const double scrollSpeed = 80.0;
   static const double backgroundScrollSpeed = 100.0;
   static const double platformHeight = 25.0;
