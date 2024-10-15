@@ -1,5 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
+import 'package:slime_fall/Class%20Library/components/top_hitbox.dart';
 import 'package:slime_fall/Constants/configuration.dart';
 import 'package:slime_fall/Constants/position.dart';
 import 'package:slime_fall/class%20library/components/background.dart';
@@ -18,6 +19,7 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection {
       Slime(),
       SpikeGroup(Position.left),
       SpikeGroup(Position.right),
+      TopHitbox(),
 
       // Added manual platforms for initial spawns.
       PlatformGroup(400),
