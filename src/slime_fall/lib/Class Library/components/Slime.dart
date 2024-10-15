@@ -1,5 +1,8 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:slime_fall/Class%20Library/components/platform.dart';
+import 'package:slime_fall/Class%20Library/components/platform_group.dart';
+import 'package:slime_fall/Class%20Library/components/spike.dart';
 import 'package:slime_fall/Constants/assets.dart';
 import 'package:slime_fall/Constants/configuration.dart';
 import 'package:slime_fall/Constants/slime_movement.dart';
@@ -35,6 +38,7 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
     final double xStartingPosistion = gameRef.size.x / 2 - size.x /2;
     position = Vector2(xStartingPosistion, 100);
 
+    // Collision hitbox
     add(CircleHitbox());
   }
 
@@ -45,17 +49,32 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
 
     // Add gravity to slime
     if (!isOnPlatform) {
+      // Set speed to gravity speed.
       position.y += Config.velocity.y * dt;
     }
     else {
+      // Set to speed of the platforms so it stays on the platform it collided with.
       position.y -= Config.scrollSpeed * dt;
     }
   }
 
+  // Trigger collision:
   @override
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollisionStart(intersectionPoints, other);
-    isOnPlatform = true;
+
+
+    // Checking on type (eg. other is Platform) does not work due to group wrapper.
+    final type = other.runtimeType.toString();
+
+    switch (type) {
+      case 'Platform':
+        isOnPlatform = true;
+        break;
+      default:
+        gameRef.pauseEngine();
+        break;
+    }
   }
 
   @override 
