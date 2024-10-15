@@ -1,8 +1,5 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:slime_fall/Class%20Library/components/platform.dart';
-import 'package:slime_fall/Class%20Library/components/platform_group.dart';
-import 'package:slime_fall/Class%20Library/components/spike.dart';
 import 'package:slime_fall/Constants/assets.dart';
 import 'package:slime_fall/Constants/configuration.dart';
 import 'package:slime_fall/Constants/slime_movement.dart';
