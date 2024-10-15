@@ -1,5 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
+import 'package:slime_fall/Class%20Library/components/top_hitbox.dart';
 import 'package:slime_fall/Constants/configuration.dart';
 import 'package:slime_fall/Constants/position.dart';
 import 'package:slime_fall/class%20library/components/background.dart';
@@ -7,7 +8,7 @@ import 'package:slime_fall/class%20library/components/platform_group.dart';
 import 'package:slime_fall/class%20library/components/slime.dart';
 import 'package:slime_fall/class%20library/components/spike_group.dart';
 
-class SlimeFallGame extends FlameGame {
+class SlimeFallGame extends FlameGame with HasCollisionDetection {
   // Interval to repeat platform spawning.
   Timer interval = Timer(Config.platformInterval, repeat: true);
 
@@ -18,6 +19,7 @@ class SlimeFallGame extends FlameGame {
       Slime(),
       SpikeGroup(Position.left),
       SpikeGroup(Position.right),
+      TopHitbox(),
 
       // Added manual platforms for initial spawns.
       PlatformGroup(400),

@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:slime_fall/Constants/assets.dart';
@@ -15,7 +16,7 @@ class Spike extends SpriteComponent with HasGameRef<SlimeFallGame> {
   @override
   Future<void> onLoad() async {
     size = Config.spikeSize;
-    position.y = positionY / 2;
+    position.y = positionY;
 
     switch (spikePosition) {
       case Position.left:
@@ -32,5 +33,8 @@ class Spike extends SpriteComponent with HasGameRef<SlimeFallGame> {
         position.x = positionX;
         break;
     }
+
+    // Collision hitbox
+    add(RectangleHitbox());
   }
 }
