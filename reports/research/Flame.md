@@ -73,7 +73,11 @@ Voor de speler is dit een cirkel hitbox: \
 Voor de platforms en spikes zijn dit rechthoekige hitboxes: \
 ![image](https://github.com/user-attachments/assets/d842817c-6cca-4feb-9547-d08e0da411b0)
 
-Om collision te detecteren op objecten kan je de mixin `HasCollisionDetection` gebruiken. Deze voegen we toe aan de speler/slime.
+Om collision te detecteren op objecten kan je de mixin `HasCollisionDetection` gebruiken op onze game klasse. Verder hoeven we hier niets te doen.
+
+![image](https://github.com/user-attachments/assets/e161ee28-5a03-4a3c-961b-aa2d07f80eaf)
+
+Aan de speler voegen we de mixin `CollisionCallbacks` toe.
 Hiermee krijgen we toegang tot event triggers als de speler collided met een object: \
 ![image](https://github.com/user-attachments/assets/e9d67669-25c5-413a-aab1-b7e9cb90886d)
 
