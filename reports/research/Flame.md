@@ -1,4 +1,4 @@
-### Flame
+# Flame
 
 ## Flame toevoegen aan project
 Doe je met `flutter pub add flame` in de terminal van visual studio code binnen het project. Dit zal een dependency toevoegen in het `pubspec.yaml` bestand.
