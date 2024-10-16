@@ -60,3 +60,19 @@ Hiermee krijgen we toegang tot event triggers als de speler collided met een obj
 
 ![image](https://github.com/user-attachments/assets/bf79a35b-7fc8-4891-b30c-60467f271da7)
 
+## Gyro controls
+Om gyro controls toe te voegen gebruiken we een nieuwe package genaamd `sensors_plus`. Zoals Flame voegen we dit aan onze pubspec.yaml file. \
+
+![image](https://github.com/user-attachments/assets/479533fe-c172-4fd6-bc3a-7052fc252f5c)
+
+We importen dit onze game klasse: \ 
+
+![image](https://github.com/user-attachments/assets/838a0a6c-5fda-4fee-9ca7-131a7971e098)
+
+We voegen een extra methode toe aan onze klasse die een stream opent en luistert naar de gyro controls van het toestel.
+Bij een verandering passen we een variabele aan die we dan kunnen gebruiken in onze update methode om de positie van de speler aan te passen. \
+
+![image](https://github.com/user-attachments/assets/4b2f06af-25ff-4065-b2d6-ee9d424e68f4) 
+
+![image](https://github.com/user-attachments/assets/622d01d7-eb37-446b-8eb1-bdc389627a8d) 
+
