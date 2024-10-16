@@ -7,6 +7,7 @@ class Config {
   // Slime
   static double slimeSensitivity = 225;
   static Vector2 slimeSize = Vector2(35, 20);
+  static Vector2 slimeSizeFalling = Vector2(20, 35);
   static Vector2 velocity = Vector2(0, 500); // How fast the player moves down when not under a platform.
 
   // Platforms
