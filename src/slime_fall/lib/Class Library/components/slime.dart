@@ -1,5 +1,6 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flutter/gestures.dart';
 import 'package:slime_fall/Constants/assets.dart';
 import 'package:slime_fall/Constants/configuration.dart';
 import 'package:slime_fall/Constants/slime_movement.dart';
@@ -8,6 +9,7 @@ import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
 class Slime extends SpriteGroupComponent<SlimeMovement> 
   with HasGameRef<SlimeFallGame>, CollisionCallbacks {
   bool isOnPlatform = false;
+  double lastPosition = 0;
   
   @override
   Future<void> onLoad() async {
@@ -17,7 +19,7 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
     final Sprite slimeWalkRight = await gameRef.loadSprite(Assets.slimeWalkRight);
     final Sprite slimeInAir = await gameRef.loadSprite(Assets.slimeInAir);
 
-    size = Config.slimeSize;
+    size = Config.slimeSizeFalling;
 
     // Assign the sprites to the group component.
     sprites =  {
@@ -32,8 +34,9 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
     current = SlimeMovement.idle;
 
     // Half of screen - bird x size
-    final double xStartingPosistion = gameRef.size.x / 2 - size.x /2;
-    position = Vector2(xStartingPosistion, 100);
+    final double xStartingPosition = gameRef.size.x / 2 - size.x /2;
+    position = Vector2(xStartingPosition, 100);
+    lastPosition = xStartingPosition;
 
     // Collision hitbox
     add(CircleHitbox());
@@ -48,10 +51,30 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
     if (!isOnPlatform) {
       // Set speed to gravity speed.
       position.y += Config.velocity.y * dt;
+      current = SlimeMovement.down;
+      size = Config.slimeSizeFalling;
     }
     else {
       // Set to speed of the platforms so it stays on the platform it collided with.
-      position.y -= Config.scrollSpeed * dt;
+      double newPosition = Config.scrollSpeed * dt;
+      position.y -= newPosition;
+      size = Config.slimeSize;
+
+      // Change sprite image depending on movement.
+      // A treshold that ensures the change between newPosition and lastPosition is significant enough before updating the movement state.
+      double deathZoneMovement = 0.005;
+      
+      if (newPosition < lastPosition - deathZoneMovement) {
+        current = SlimeMovement.left;
+      }
+      else if (newPosition > lastPosition + deathZoneMovement) {
+        current = SlimeMovement.right;
+      }
+      else {
+        current = SlimeMovement.idle;
+      }
+      
+      lastPosition = newPosition;
     }
   }
 
