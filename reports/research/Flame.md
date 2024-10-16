@@ -84,7 +84,7 @@ Hiermee krijgen we toegang tot event triggers als de speler collided met een obj
 ![image](https://github.com/user-attachments/assets/bf79a35b-7fc8-4891-b30c-60467f271da7)
 
 ## Gyro controls
-Om gyro controls toe te voegen gebruiken we een nieuwe package genaamd `sensors_plus`. Zoals Flame voegen we dit aan onze pubspec.yaml file. 
+Om gyro controls toe te voegen gebruiken we een nieuwe package genaamd `sensors_plus`. Zoals Flame voegen we dit aan onze pubspec.yaml file of gebruiken we het commando `flutter pub add sensors_plus` in de terminal.
 
 ![image](https://github.com/user-attachments/assets/479533fe-c172-4fd6-bc3a-7052fc252f5c)
 
