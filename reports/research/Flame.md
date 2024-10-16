@@ -17,6 +17,14 @@ Dit doe je in de main.dart bestand zo:
 
 SlimeFallGame is een klasse in de class library onder de game folder.
 
+## Delta Time
+In Flame kom je vaak de variabele/parameter `dt` tegen. Dit staat voor Delta Time en vertegenwoordigd het tijdsverschil in seconden tussen 2 frames in de de game loop.
+Het zorgt ervoor dat de game logica hetzelfde blijft onder verschillende fps. Je kan dan deze variabele ook gebruiken om calculaties te runnen op objecten voor een smooth experience, bv. de manier waarop het platform omhoog scrolled in mijn game. \
+![image](https://github.com/user-attachments/assets/29732fdb-2a94-476f-b705-514c3ab13437)
+
+Als de game op 60 FPS draait dan zal de `dt = 0.016` zijn ( 1 seconde / 60 frames ) we bewegen dan de platform groep met een waarde die in de configuratie file staat. Op het moment van schrijven staat deze op 80.
+`80 * 0.016 = 1.28` => de platformen bewegen op 1.28 units per frame.
+
 ## Components
 De Flame engine werkt met een component systeem (FCS: Flame Component System) en inherit van de Component klasse.
 
