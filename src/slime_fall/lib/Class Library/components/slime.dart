@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:slime_fall/Constants/assets.dart';
 import 'package:slime_fall/Constants/configuration.dart';
 import 'package:slime_fall/Constants/slime_movement.dart';
+import 'package:slime_fall/class%20library/components/platform_group.dart';
 import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
 
 class Slime extends SpriteGroupComponent<SlimeMovement> 
@@ -89,6 +90,12 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
 
     switch (type) {
       case 'Platform':
+        // Set slime position to platform group's y position so that slime always lands on platform instead of sometimes bugging out through platform.
+        // We need to find the platform group's y position by retrieving the platform's parent and getting it's size. 
+        PlatformGroup plat = other.parent as PlatformGroup;
+        double platformSize = other.size.y;
+        position.y = plat.position.y - platformSize / 2;
+
         isOnPlatform = true;
         break;
       default:
