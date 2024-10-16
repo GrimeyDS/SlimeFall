@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flame/components.dart';
 import 'package:flame/extensions.dart';
 import 'package:flame/game.dart';
+import 'package:flutter/material.dart';
 import 'package:slime_fall/Class%20Library/components/top_hitbox.dart';
 import 'package:slime_fall/Constants/configuration.dart';
 import 'package:slime_fall/Constants/position.dart';
@@ -46,10 +47,21 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection {
   }
 
   void startGyroscopeListener() {
-    final StreamSubscription _gyroscopeSubscription = gyroscopeEventStream().listen((GyroscopeEvent event) {
+    gyroscopeEventStream().listen((GyroscopeEvent event) {
       gyroX += event.y * Config.slimeSensitivity; // event.y is rotation around the y-axis (left-right)
       //gyroY += event.x; // event.x is rotation around the x-axis (up-down)
-    });
+    },
+    onError: (e) {
+          showDialog(
+              context: e,
+              builder: (context) {
+                return const AlertDialog(
+                  title: Text("Sensor Not Found"),
+                  content: Text(
+                      "It seems that your device doesn't support Gyroscope Sensor"),
+                );
+              });
+        },);
   }
 
   @override
