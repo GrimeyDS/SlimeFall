@@ -56,13 +56,13 @@ Een heel simpel voorbeeld van een component is een `ShapeComponent`. Hierbij tek
 
 ![image](https://github.com/user-attachments/assets/47e935bd-e43a-49ea-856b-d9ce97b31eea)
 
-### onLoad
+### onLoad()
 In de bovenstaande code zag je dat we vaak de `onLoad` methode overriden. Dit gebruiken we om zo het gedrag en uitzicht te bepalen van de objecten die we aanmaken.
 
-### HasGameRef mixin
+### HasGameRef<T> mixin
 Je zal ook zien dat we de mixin `HasGameRef<SlimeGame>` gebruiken. Dit is een helper die ons toelaat om een referentie te krijgen van onze game instance. Deze kunnen we dan bv. gebruiken om de grote van het beeldscherm te raadplegen. `HasGameRef<T>` Waarvan T de game klasse is.
 
-### Vector2
+### Vector2(double x, double y)
 `Vector2` is een type die we gebruiken om een x en y waarde aan mee te geven van het type double. Je hebt ook `Vector3` om een extra z waarde aan mee te geven. Dit laatste gebruiken we niet.
 
 ## Collision detection en hitboxes
@@ -80,16 +80,16 @@ Hiermee krijgen we toegang tot event triggers als de speler collided met een obj
 ![image](https://github.com/user-attachments/assets/bf79a35b-7fc8-4891-b30c-60467f271da7)
 
 ## Gyro controls
-Om gyro controls toe te voegen gebruiken we een nieuwe package genaamd `sensors_plus`. Zoals Flame voegen we dit aan onze pubspec.yaml file. \
+Om gyro controls toe te voegen gebruiken we een nieuwe package genaamd `sensors_plus`. Zoals Flame voegen we dit aan onze pubspec.yaml file. 
 
 ![image](https://github.com/user-attachments/assets/479533fe-c172-4fd6-bc3a-7052fc252f5c)
 
-We importen dit onze game klasse: \ 
+We importen dit onze game klasse: 
 
 ![image](https://github.com/user-attachments/assets/838a0a6c-5fda-4fee-9ca7-131a7971e098)
 
 We voegen een extra methode toe aan onze klasse die een stream opent en luistert naar de gyro controls van het toestel.
-Bij een verandering passen we een variabele aan die we dan kunnen gebruiken in onze update methode om de positie van de speler aan te passen. \
+Bij een verandering passen we een variabele aan die we dan kunnen gebruiken in onze update methode om de positie van de speler aan te passen. 
 
 ![image](https://github.com/user-attachments/assets/4b2f06af-25ff-4065-b2d6-ee9d424e68f4) 
 
