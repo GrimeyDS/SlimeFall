@@ -1,4 +1,4 @@
-# Down you go (placeholder name)
+# Slime Fall
 
 ## Verantwoording
 Voor mijn project zou ik graag een kleine game maken in Dart/Flutter met de game engine Flame voor android. Door de opleiding ben ik enkel maar bezig geweest met statische elementen (bv. Formulieren), om mijn grenzen te verleggen zou ik nu graag eens iets dynamisch en (audio)visueel programmeren. Om het toch innovatief te maken voor de opleiding zou ik dit verwezenlijken in een andere programeertaal.
@@ -65,6 +65,9 @@ project te kunnen uitvoeren:
 - De officiele documentatie van [Flame](https://docs.flame-engine.org/latest/).
 - De officiele documentatie van [Flutter](https://docs.flutter.dev/).
 - De officiele documentatie van [Dart](https://dart.dev/guides).
+- De officiele documentatie van [Firestore](https://firebase.google.com/docs/firestore).
+- Documentatie van [sensors_plus](https://pub.dev/packages/sensors_plus).
 - Dart [Conventions](https://dart.dev/effective-dart/style).
 - Dart file name [Conventions](https://dart.dev/tools/linter-rules/file_names).
 - Flutter tutorial op [youtube](https://www.youtube.com/watch?v=VPvVD8t02U8&t=32919s).
+- ChatGPT voor bepaalde berekeningen.
