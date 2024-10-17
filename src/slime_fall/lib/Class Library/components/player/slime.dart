@@ -9,8 +9,12 @@ import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
 class Slime extends SpriteGroupComponent<SlimeMovement> 
   with HasGameRef<SlimeFallGame>, CollisionCallbacks {
   bool isOnPlatform = false;
+  bool isDashing = false;
+  bool isOnCooldown = false;
+
+  double currentCooldown = 0;
   double lastPosition = 0;
-  
+
   @override
   Future<void> onLoad() async {
     // Retrieve sprites.
@@ -46,6 +50,16 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
     super.update(dt);
     
     updateSlimeState(dt);
+    checkCooldown(dt);
+  }
+
+  void checkCooldown(double dt) {
+    if (currentCooldown > 0) {
+      currentCooldown -= dt;
+    }
+    else {
+      isOnCooldown = false;
+    }
   }
 
   void updateSlimeState(double dt) {
@@ -91,10 +105,15 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
   }
 
   void dash() {
-    // dash down if on a platform
-    if (isOnPlatform) {
+    // dash down if on a platform and not already dashing and not on cooldown
+    if (isOnPlatform && !isDashing && !isOnCooldown) {
+      isDashing = true;
       position.y += Config.dashDistance;
+
+      isOnCooldown = true;
+      currentCooldown = Config.dashCooldown;
     }
+    isDashing = false;
   }
 
   // Trigger collision:
