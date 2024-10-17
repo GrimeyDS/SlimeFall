@@ -2,7 +2,7 @@ import 'package:flame/components.dart';
 
 class Config {
   // Spike
-  static Vector2 spikeSize = Vector2(15, 25);
+  static Vector2 spikeSize = Vector2(10, 20);
 
   // Slime
   static double slimeSensitivity = 225;
