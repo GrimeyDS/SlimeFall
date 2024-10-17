@@ -24,7 +24,8 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection {
     const int initialSpawnPoint = 280;
     const int spawnInterval = 120;
 
-    final int amountOfInitialPlatforms = ((fullSize - initialSpawnPoint) / spawnInterval).toInt();
+    // ~/ is used to return an integer.
+    final int amountOfInitialPlatforms = (fullSize - initialSpawnPoint) ~/ spawnInterval;
 
     addAll([
       Background(),
