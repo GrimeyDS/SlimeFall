@@ -46,18 +46,30 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
   void update(double dt) {
     super.update(dt);
     
+    updateSlimeState(dt);
+  }
 
-    // Add gravity to slime
+  void updateSlimeState(double dt) {
     if (!isOnPlatform) {
       // Set speed to gravity speed.
       position.y += Config.velocity.y * dt;
-      current = SlimeMovement.down;
-      size = Config.slimeSizeFalling;
+      setFallingSlime();
     }
     else {
       // Set to speed of the platforms so it stays on the platform it collided with.
       double newPosition = Config.scrollSpeed * dt;
       position.y -= newPosition;
+      setPlatformSlime(newPosition);
+      lastPosition = newPosition;
+    }
+  }
+
+  void setFallingSlime() {
+      current = SlimeMovement.down;
+      size = Config.slimeSizeFalling;
+  }
+
+  void setPlatformSlime(double newPosition) {
       size = Config.slimeSize;
 
       // Change sprite image depending on movement.
@@ -73,9 +85,6 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
       else {
         current = SlimeMovement.idle;
       }
-      
-      lastPosition = newPosition;
-    }
   }
 
   // Trigger collision:
