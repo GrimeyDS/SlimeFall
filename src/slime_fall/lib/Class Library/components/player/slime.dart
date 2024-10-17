@@ -4,6 +4,7 @@ import 'package:slime_fall/Constants/assets.dart';
 import 'package:slime_fall/Constants/configuration.dart';
 import 'package:slime_fall/Constants/slime_movement.dart';
 import 'package:slime_fall/class%20library/components/platform/platform_group.dart';
+import 'package:slime_fall/class%20library/components/player/effects.dart';
 import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
 
 class Slime extends SpriteGroupComponent<SlimeMovement> 
@@ -15,13 +16,15 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
   double currentCooldown = 0;
   double lastPosition = 0;
 
+  late final Sprite slimeInAir;
+
   @override
   Future<void> onLoad() async {
     // Retrieve sprites.
     final Sprite slimeIdle = await gameRef.loadSprite(Assets.slimeIdle);
     final Sprite slimeWalkLeft = await gameRef.loadSprite(Assets.slimeWalkLeft);
     final Sprite slimeWalkRight = await gameRef.loadSprite(Assets.slimeWalkRight);
-    final Sprite slimeInAir = await gameRef.loadSprite(Assets.slimeInAir);
+    slimeInAir = await gameRef.loadSprite(Assets.slimeInAir);
 
     size = Config.slimeSizeFalling;
 
@@ -112,6 +115,9 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
 
       isOnCooldown = true;
       currentCooldown = Config.dashCooldown;
+      
+      gameRef.add(SlimeEffects.createDashEffect(position, slimeInAir));
+      gameRef.add(SlimeEffects.createDashParticles(position));
     }
     isDashing = false;
   }
