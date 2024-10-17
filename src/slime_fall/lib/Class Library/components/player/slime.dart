@@ -26,8 +26,7 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
       SlimeMovement.idle: slimeIdle,
       SlimeMovement.left: slimeWalkLeft,
       SlimeMovement.right: slimeWalkRight,
-      SlimeMovement.up: slimeInAir,
-      SlimeMovement.down: slimeInAir
+      SlimeMovement.air: slimeInAir,
     };
 
     // Default state.
@@ -65,7 +64,7 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
   }
 
   void setFallingSlime() {
-      current = SlimeMovement.down;
+      current = SlimeMovement.air;
       size = Config.slimeSizeFalling;
   }
 
