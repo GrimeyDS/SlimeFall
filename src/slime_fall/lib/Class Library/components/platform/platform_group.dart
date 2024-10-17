@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:flame/components.dart';
 import 'package:slime_fall/Constants/configuration.dart';
 import 'package:slime_fall/Constants/position.dart';
-import 'package:slime_fall/class%20library/components/platform.dart';
+import 'package:slime_fall/class%20library/components/platform/platform.dart';
 import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
 
 class PlatformGroup extends PositionComponent with HasGameRef<SlimeFallGame> {

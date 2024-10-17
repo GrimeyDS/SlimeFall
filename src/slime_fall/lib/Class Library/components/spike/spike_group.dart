@@ -1,7 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:slime_fall/Constants/configuration.dart';
 import 'package:slime_fall/Constants/position.dart';
-import 'package:slime_fall/class%20library/components/spike.dart';
+import 'package:slime_fall/class%20library/components/spike/spike.dart';
 import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
 
 class SpikeGroup extends PositionComponent with HasGameRef<SlimeFallGame> {
