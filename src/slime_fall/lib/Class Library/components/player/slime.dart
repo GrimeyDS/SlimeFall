@@ -86,6 +86,17 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
       }
   }
 
+  void changePosition(double x) {
+    position.x += x;
+  }
+
+  void dash() {
+    // dash down if on a platform
+    if (isOnPlatform) {
+      position.y += Config.dashDistance;
+    }
+  }
+
   // Trigger collision:
   @override
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {

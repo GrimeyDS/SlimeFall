@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flame/components.dart';
+import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:slime_fall/Class%20Library/components/top_hitbox.dart';
@@ -11,7 +12,7 @@ import 'package:slime_fall/class%20library/components/spike/spike_group.dart';
 import 'package:slime_fall/class%20library/components/player/slime.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 
-class SlimeFallGame extends FlameGame with HasCollisionDetection {
+class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
   // Interval to repeat platform spawning.
   Timer interval = Timer(Config.platformInterval, repeat: true);
   final Slime slime = Slime();
@@ -64,12 +65,16 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection {
         },);
   }
 
+  @override void onTap() {
+    super.onTap();
+    slime.dash();
+  }
+
   @override
   void update(double dt) {
     super.update(dt);
     // Check if interval has surpassed on game ticks. If surpassed will call the function in onLoad
     interval.update(dt);
-
-    slime.position.x += gyroX * dt;
+    slime.changePosition(gyroX * dt);
   }
 }
