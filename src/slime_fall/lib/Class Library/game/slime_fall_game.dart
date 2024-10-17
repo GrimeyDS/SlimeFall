@@ -50,6 +50,8 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
   void startGyroscopeListener() {
     gyroscopeEventStream().listen((GyroscopeEvent event) {
       gyroX += event.y * Config.slimeSensitivity; // event.y is rotation around the y-axis (left-right)
+
+      // NOT IN USE
       //gyroY += event.x; // event.x is rotation around the x-axis (up-down)
     },
     onError: (e) {
