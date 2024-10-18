@@ -10,7 +10,7 @@ class Config {
   static final Vector2 slimeSizeFalling = Vector2(20, 35);
   static final Vector2 velocity = Vector2(0, 500); // How fast the player moves down when not under a platform.
   static const double dashDistance = platformHeight * 2;
-  static const double dashCooldown = 0;
+  static const double dashCooldown = 5;
 
   // Platforms
   static const double scrollSpeed = 150.0;
