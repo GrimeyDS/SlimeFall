@@ -59,9 +59,11 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
   void checkCooldown(double dt) {
     if (currentCooldown > 0) {
       currentCooldown -= dt;
+      gameRef.updateCooldownOverlay(currentCooldown / Config.dashCooldown);
     }
     else {
       isOnCooldown = false;
+      gameRef.updateCooldownOverlay(0);
     }
   }
 
