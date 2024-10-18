@@ -4,6 +4,7 @@ import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:slime_fall/Class%20Library/components/top_hitbox.dart';
+import 'package:slime_fall/Class%20Library/overlays/dash_cooldown_overlay.dart';
 import 'package:slime_fall/Constants/configuration.dart';
 import 'package:slime_fall/Constants/position.dart';
 import 'package:slime_fall/class%20library/components/background.dart';
@@ -45,6 +46,9 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
     // Spawn new platform
     interval.onTick = () => add(PlatformGroup(0));
     startGyroscopeListener();
+
+    // Overlays
+    overlays.addEntry('DashCooldownOverlay', (context, _) => DashCooldownOverlay(cooldownProgress: 0)); // default value
   }
 
   void startGyroscopeListener() {
@@ -65,6 +69,11 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
                 );
               });
         },);
+  }
+
+  void updateCooldownOverlay(double cooldownProgress) {
+    overlays.remove('DashCooldownOverlay');
+    overlays.addEntry('DashCooldownOverlay', (context, _) => DashCooldownOverlay(cooldownProgress: cooldownProgress));
   }
 
   @override void onTap() {
