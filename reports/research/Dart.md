@@ -125,5 +125,8 @@ Imports worden gebruikt om API of andere klassen in je library te gebruiken: \
 - variabelen/properties: lowerCamelCase. bv `bool hasFallDamage`
 
 ## Vertical Slicing
-Verticale slicing in softwarearchitectuur die verwijst naar de organisatie van code rond specifieke functies of gebruiksscenario's i.p.v. rond technische problemen zoals lagen (bijvoorbeeld UI, business logic, core). Elke functie, of 'verticale slice', omvat alle aspecten van de applicatie die nodig zijn om die functie te vervullen, inclusief de gebruikersinterface, de bedrijfslogica en de laag voor gegevenstoegang.
-Ik zal dit gebruiken om de functies van de componenten te organiseren.
+Verticale slicing in softwarearchitectuur verwijst naar de organisatie van code rond specifieke functies of gebruiksscenario's i.p.v. rond technische problemen zoals lagen (bijvoorbeeld UI, business logic, core). Elke functie, of 'verticale slice', omvat alle aspecten van de applicatie die nodig zijn om die functie te vervullen, inclusief de gebruikersinterface, de bedrijfslogica en de laag voor gegevenstoegang.
+Ik zal dit licht gebruiken om de functies van de componenten te organiseren:
+
+![image](https://github.com/user-attachments/assets/d4731c97-27b4-4823-ad23-48e810723848)
+
