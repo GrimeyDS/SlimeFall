@@ -65,6 +65,19 @@ Je zal ook zien dat we de mixin `HasGameRef<SlimeGame>` gebruiken. Dit is een he
 ### Vector2(double x, double y)
 `Vector2` is een type die we gebruiken om een x en y waarde aan mee te geven van het type double. Je hebt ook `Vector3` om een extra z waarde aan mee te geven. Dit laatste gebruiken we niet.
 
+### Effects
+Het is ook mogelijk om effecten aan te maken in Flame. Dit is een speciale component om aan andere components toe te voegen en veranderd de eigenschappen en verschijning van het component.
+Een paar vb zijn `MoveByEffect`(verplaats het component) `RotateEffect.by`(draai het component) `OpacityToEffect`(verander de opacity) `ColorEffect`(geef een ander kleur). Er bestaat ook een `SequenceEffect`, Hiermee kan je verschillende effecten combineren en aan 1 component hangen.
+
+![image](https://github.com/user-attachments/assets/a83dcbb7-c9b3-4106-a212-aef00a542e3d)
+
+### Particles
+Met het `ParticleSystemComponent` kan je ook robuste particles aanmaken. Je geeft mee hoeveel, snelheid, acceleratie, vorm en kleur. Ook geef je het gedrag mee van de particles:
+
+![image](https://github.com/user-attachments/assets/5a8cd1b2-0710-455a-807e-4389b0c3d3b4)
+
+![image](https://github.com/user-attachments/assets/81647fde-1af6-45fb-93de-d5d82ce7c3fe)
+
 ## Collision detection en hitboxes
 In het eerste geval moeten we hitboxes toevoegen aan onze objecten. Dit kan je simpelweg met een object toe te voegen aan je reeds aangemakte objecten in de `onLoad` method.
 Voor de speler is dit een cirkel hitbox: \
@@ -98,4 +111,13 @@ Bij een verandering passen we een variabele aan die we dan kunnen gebruiken in o
 ![image](https://github.com/user-attachments/assets/4b2f06af-25ff-4065-b2d6-ee9d424e68f4) 
 
 ![image](https://github.com/user-attachments/assets/622d01d7-eb37-446b-8eb1-bdc389627a8d) 
+
+## Tap controls
+Tap controls kan je heel gemakkelijk toevoegen met de mixin `TapDetector` aan onze game klasse:
+
+![image](https://github.com/user-attachments/assets/639bc669-6fa2-45e3-81a6-3b0ab9029e4c)
+
+Daarna kan je de `onTap` functie gebruiken die ingebouwd zit in Flame om de registratie toe te voegen en er gedrag achter te steken:
+
+![image](https://github.com/user-attachments/assets/4ffd2861-ac01-4a8f-a81a-c886cd1e3730)
 
