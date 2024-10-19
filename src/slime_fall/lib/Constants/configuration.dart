@@ -23,4 +23,5 @@ class Config {
 
   // Overlays
   static const String dashCooldownOverlay = 'DashCooldownOverlay';
+  static const String scoreOverlay = 'ScoreOverlay';
 }

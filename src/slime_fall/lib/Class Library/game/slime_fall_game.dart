@@ -18,6 +18,7 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
   final Slime slime = Slime();
   double gyroX = 0;
   double gyroY = 0;
+  int score = 0;
 
   @override
   Future<void> onLoad() async {
@@ -78,5 +79,13 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
     // Check if interval has surpassed on game ticks. If surpassed will call the function in onLoad
     interval.update(dt);
     slime.changePosition(gyroX * dt);
+    updateScore(dt);
+  }
+
+
+  void updateScore(dt) {
+    overlays.remove(Config.scoreOverlay);
+    score += (interval.current * 1.1).toInt(); // Score is based on how many platforms have been spawned.
+    overlays.add(Config.scoreOverlay);
   }
 }
