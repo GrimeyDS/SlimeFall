@@ -20,4 +20,7 @@ class Config {
 
   // Background
   static const double backgroundScrollSpeed = 100.0;
+
+  // Overlays
+  static const String dashCooldownOverlay = 'DashCooldownOverlay';
 }
