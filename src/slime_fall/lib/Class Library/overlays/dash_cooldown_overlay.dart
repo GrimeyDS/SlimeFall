@@ -17,8 +17,8 @@ class DashCooldownOverlay extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           SizedBox(
-            width: 60,
-            height: 60,
+            width: 40,
+            height: 40,
             child: CircularProgressIndicator(
               value: game.slime.cooldownPercent,
               strokeWidth: 5,
