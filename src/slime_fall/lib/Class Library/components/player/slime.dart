@@ -96,7 +96,7 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
 
       // Change sprite image depending on movement.
       // A treshold that ensures the change between newPosition and lastPosition is significant enough before updating the movement state.
-      double deathZoneMovement = 0.005;
+      double deathZoneMovement = 0.1;
       
       if (newPosition < lastPosition - deathZoneMovement) {
         current = SlimeMovement.left;
