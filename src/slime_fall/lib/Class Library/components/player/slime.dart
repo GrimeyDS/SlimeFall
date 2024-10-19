@@ -54,10 +54,10 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
     super.update(dt);
     
     updateSlimeState(dt);
-    checkCooldown(dt);
+    checkDashCooldown(dt);
   }
 
-   void checkCooldown(double dt) {
+   void checkDashCooldown(double dt) {
     gameRef.overlays.remove(Config.dashCooldownOverlay);
 
     if (currentCooldown > 0) {
