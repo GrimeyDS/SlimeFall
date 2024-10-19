@@ -14,6 +14,7 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
   bool isOnCooldown = false;
 
   double currentCooldown = 0;
+  double cooldownPercent = 0;
   double lastPosition = 0;
 
   late final Sprite slimeInAir;
@@ -56,15 +57,18 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
     checkCooldown(dt);
   }
 
-  void checkCooldown(double dt) {
+   void checkCooldown(double dt) {
+    gameRef.overlays.remove(Config.dashCooldownOverlay);
+
     if (currentCooldown > 0) {
       currentCooldown -= dt;
-      gameRef.updateCooldownOverlay(currentCooldown / Config.dashCooldown);
+      cooldownPercent = currentCooldown / Config.dashCooldown;
     }
     else {
       isOnCooldown = false;
-      gameRef.updateCooldownOverlay(0);
     }
+
+    gameRef.overlays.add(Config.dashCooldownOverlay);
   }
 
   void updateSlimeState(double dt) {
