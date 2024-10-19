@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
 
 class DashCooldownOverlay extends StatelessWidget {
-  static const String id = 'DashCooldownOverlay';
-  final double cooldownProgress;
-  final Color foreGroundColor = Colors.blue;
-  final Color backgroundColor = Colors.white;
+  final Color foreGroundColor = Colors.white;
+  final Color backgroundColor = Colors.blue;
+  final SlimeFallGame game;
 
-  // ignore: prefer_const_constructors_in_immutables, use_super_parameters
-  DashCooldownOverlay({Key? key, required this.cooldownProgress}) : super(key: key);
+  const DashCooldownOverlay({super.key, required this.game});
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
+     final postioned = Positioned(
       top: 20,
       right: 20,
       child: Stack(
@@ -21,14 +20,15 @@ class DashCooldownOverlay extends StatelessWidget {
             width: 60,
             height: 60,
             child: CircularProgressIndicator(
-              value: cooldownProgress,
-              strokeWidth: 6,
+              value: game.slime.cooldownPercent,
+              strokeWidth: 5,
               backgroundColor: backgroundColor,
               valueColor: AlwaysStoppedAnimation(foreGroundColor),
             ),
           )
         ]
       ),
-    );
+    ); 
+    return postioned;
   }
 }
