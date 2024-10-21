@@ -121,3 +121,31 @@ Daarna kan je de `onTap` functie gebruiken die ingebouwd zit in Flame om de regi
 
 ![image](https://github.com/user-attachments/assets/4ffd2861-ac01-4a8f-a81a-c886cd1e3730)
 
+## Overlays
+Overlays laten ons toe om elementen bovenop de game te laten weergeven. Je kan bijvoorbeeld een score toevoegen, een knop of zelfs een simpel menu.
+Voor mijn project heb ik gekozen om een score en een dash cooldown te weergeven.
+
+Eerst passen we de `main.dart` file aan. I.p.v. direct de game te runnen plaatsen we nu eerst een `MaterialApp` klasse. Dit is een klasse waarbij je meerdere widgets samen kan wrappen.
+Hieronder plaatsen we een `Scaffold` wat behoort to de `MaterialApp` klasse en geeft een basic layout structuur.
+
+Daarna volgt de body met de `GameWidget` die we dan onderverdelen in 2 delen: de instantie van de game zelf en het configureren van de `OverlayMap`. In die `OverlayBuilderMap` laten we de widget weten dat er nu 2 overlays geconfigueerd zijn:
+
+![image](https://github.com/user-attachments/assets/d8392c78-04ee-442f-a2c3-f5329072c227)
+
+### Overlay klasse
+Om een overlay te maken, maken we een nieuwe klasse die een subklasse is voor een `StatelessWidget`. Dit zorgt ervoor dat de `MaterialApp` dit kan gebruiken om op het scherm te plaatsen.
+De methode `WidgetBuild` bouwt het element.
+- In dit voorbeeld geven we dit eerst een `Positioned` mee, hiermee kunnen we de positie bepalen op het scherm.
+- In die `Positioned` geven we ook `children` mee. Hier plaatsen we een `SizedBox` waar we de afmeting aan meegeven.
+- In die `SizedBox` steken we dan ons effectief element. We gebruiken een `CircularProgressIndicator` om de cooldown progress te tonen van de dash.
+- De 2 voornaamste properties van dit element zijn:
+    - value: de waarde van de cooldown (tussen 0 en 1).
+    - valueColor: `AlwaysStoppedAnimation`zorgt ervoor dat het element blijft staan als de cooldown 0 en 1 is.
+      
+![image](https://github.com/user-attachments/assets/8db20907-371a-4ea7-92a7-44bec5a71edd)
+
+### Overlay Activeren
+Om de overlay te activeren op het scherm en ze ook te refreshen maak je gebruik van de `overlays.add()` of `overlays.remove()` methodes aan de instantie van de game. Hiermee geef je gewoon de naam van de overlay die je in de `main.dart` hebt geconfigueerd.
+In dit voorbeeld refreshen we de overlay op elke game tick.
+
+![image](https://github.com/user-attachments/assets/a24f5d47-32fb-4baa-acde-14d98195cfe3)
