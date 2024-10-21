@@ -1,0 +1,55 @@
+import 'package:flutter/material.dart';
+
+class LoginPage extends StatelessWidget {
+  final Function(String, String) onLogin; // Callback funtion but with parameters
+  final VoidCallback onSwitchToRegister;
+
+  const LoginPage({
+    super.key,
+    required this.onLogin,
+    required this.onSwitchToRegister,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Login'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              controller: emailController,
+              decoration: const InputDecoration(labelText: 'Email'),
+            ),
+            const SizedBox(height: 10),
+            TextField(
+              controller: passwordController,
+              decoration: const InputDecoration(labelText: 'Password'),
+              obscureText: true,
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                final email = emailController.text;
+                final password = passwordController.text;
+                onLogin(email, password);
+              },
+              child: const Text('Login'),
+            ),
+            TextButton(
+              onPressed: onSwitchToRegister,
+              child: const Text('Don\'t have an account? Register'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
