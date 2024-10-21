@@ -1,0 +1,72 @@
+import 'package:flame/game.dart';
+import 'package:flutter/material.dart';
+import 'package:slime_fall/Class%20Library/overlays/dash_cooldown_overlay.dart';
+import 'package:slime_fall/User/login_page.dart';
+import 'package:slime_fall/User/register_page.dart';
+import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
+import 'package:slime_fall/class%20library/overlays/score_overlay.dart';
+import 'package:slime_fall/main.dart';
+import 'package:slime_fall/Constants/configuration.dart';
+
+class AppState extends State<GameApp> {
+  bool isLoggedIn = false;
+  bool isRegistering = false;
+
+  void handleLogin(String email, String password) {
+    // Replace this with your actual authentication logic
+    // e.g. FirebaseAuth login, API request, etc.
+    setState(() {
+      isLoggedIn = true;
+    });
+  }
+
+  void handleRegister(String email, String password) {
+    // Replace this with your actual registration logic
+    // e.g. FirebaseAuth registration, API request, etc.
+    setState(() {
+      isLoggedIn = true;
+    });
+  }
+
+  void switchToRegister() {
+    setState(() {
+      isRegistering = true;
+    });
+  }
+
+  void switchToLogin() {
+    setState(() {
+      isRegistering = false;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Slime Fall',
+      home: Scaffold(
+        body: 
+              isLoggedIn ?
+
+                  GameWidget(
+                  game: SlimeFallGame(),
+                  overlayBuilderMap: {
+                    Config.dashCooldownOverlay: (_, SlimeFallGame game) => DashCooldownOverlay(game: game),
+                    Config.scoreOverlay: (_, SlimeFallGame game) => ScoreOverlay(game: game),
+                  },
+                )
+
+              : isRegistering ?
+
+                    RegisterPage(
+                      onRegister: handleRegister,
+                      onSwitchToLogin: switchToLogin,
+                    )
+                  : LoginPage(
+                      onLogin: handleLogin,
+                      onSwitchToRegister: switchToRegister,
+                    ),
+      ),
+    );
+  }
+}
