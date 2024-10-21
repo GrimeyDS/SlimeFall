@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "141951058720",
+    "project_id": "slime-fall",
+    "storage_bucket": "slime-fall.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141951058720:android:3b4a00eda0fb1c2bdf4d45",
+        "android_client_info": {
+          "package_name": "com.example.slime_fall"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuDMpvpSAK36Ek3043x7479UQ6L8eBMfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

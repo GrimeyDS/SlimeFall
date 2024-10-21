@@ -5,6 +5,7 @@ import 'package:slime_fall/Class%20Library/overlays/dash_cooldown_overlay.dart';
 import 'package:slime_fall/Constants/configuration.dart';
 import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
 import 'package:slime_fall/class%20library/overlays/score_overlay.dart';
+import 'firebase_options.dart';
 
 final slimeGame = SlimeFallGame();
 
