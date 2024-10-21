@@ -1,17 +1,13 @@
 import 'package:flame/flame.dart';
-import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-import 'package:slime_fall/Class%20Library/overlays/dash_cooldown_overlay.dart';
-import 'package:slime_fall/Constants/configuration.dart';
-import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
-import 'package:slime_fall/class%20library/overlays/score_overlay.dart';
-import 'firebase_options.dart';
-
-final slimeGame = SlimeFallGame();
+import 'package:slime_fall/app_state.dart';
 
 void main() {
-  //runApp(GameWidget(game: slimeGame),);
-  runApp(MaterialApp(
+  runApp(const GameApp());
+
+  
+/*   runApp(MaterialApp(
+    title: 'Slime Fall',
     home: Scaffold(
       body: GameWidget(
         game: SlimeFallGame(),
@@ -21,9 +17,17 @@ void main() {
         }
       ),
     )
-  ));
+  )); */
 
   Flame.device.fullScreen();
   Flame.device.setPortraitUpOnly();
 }
+
+class GameApp extends StatefulWidget {
+  const GameApp({super.key});
+
+  @override
+  AppState createState() => AppState();
+}
+
 
