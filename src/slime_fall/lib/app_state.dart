@@ -13,16 +13,14 @@ class AppState extends State<GameApp> {
   bool isRegistering = false;
 
   void handleLogin(String email, String password) {
-    // Replace this with your actual authentication logic
-    // e.g. FirebaseAuth login, API request, etc.
+    // Add service to login user
     setState(() {
       isLoggedIn = true;
     });
   }
 
   void handleRegister(String email, String password) {
-    // Replace this with your actual registration logic
-    // e.g. FirebaseAuth registration, API request, etc.
+    // Add service to register user
     setState(() {
       isLoggedIn = true;
     });
