@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:slime_fall/game/constants/assets.dart';
+import 'package:slime_fall/pages/components/app_bar.dart';
+import 'package:slime_fall/pages/components/email_textfield.dart';
+import 'package:slime_fall/pages/components/feedback_text.dart';
+import 'package:slime_fall/pages/components/password_textfield.dart';
+import 'package:slime_fall/pages/components/submit_button.dart';
+import 'package:slime_fall/pages/components/text_button.dart';
 import 'package:slime_fall/services/authentication/authentication_constants.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -20,9 +25,7 @@ class RegisterPage extends StatelessWidget {
     final TextEditingController passwordController = TextEditingController();
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Register'),
-      ),
+      appBar: GameAppBar(title: AuthConstants.register),
       body: Stack(
         children: [
           Positioned.fill(
@@ -38,41 +41,18 @@ class RegisterPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextField(
-                  controller: emailController,
-                  decoration: const InputDecoration(labelText: AuthConstants.email),
-                ),
+                EmailTextfield(controller: emailController),
                 const SizedBox(height: 10),
-                TextField(
-                  controller: passwordController,
-                  decoration: const InputDecoration(labelText: AuthConstants.password),
-                  obscureText: true,
-                ),
+
+                PasswordTextfield(controller: passwordController),
                 const SizedBox(height: 20),
+
                 if (errorMessage.isNotEmpty)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Text(
-                      errorMessage,
-                      style: TextStyle( 
-                        color: errorMessage.contains('Success') ?
-                              Colors.green : Colors.red,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ElevatedButton(
-                  onPressed: () {
-                    final email = emailController.text;
-                    final password = passwordController.text;
-                    onRegister(email, password);
-                  },
-                  child: const Text('Register'),
-                ),
-                TextButton(
-                  onPressed: onSwitchToLogin,
-                  child: const Text('Already have an account? Login'),
-                ),
+                  FeedbackText(message: errorMessage),
+
+                SubmitButton(text: AuthConstants.register, onPressed: () { onRegister(emailController.text, passwordController.text); },),
+
+                SwitchPageTextButton(text: AuthConstants.toLoginMessage, onPressed: onSwitchToLogin,),
               ],
             ),
           ),
