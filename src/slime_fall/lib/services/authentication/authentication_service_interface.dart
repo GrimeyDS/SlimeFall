@@ -1,6 +1,6 @@
 import 'package:slime_fall/services/authentication/user_entity.dart';
 
-abstract class AuthenticationService {
+abstract class IAuthenticationService {
   Future<void> initialize();
   UserEntity? get currentUser;
   Future<void> login({ required String email, required String password});
