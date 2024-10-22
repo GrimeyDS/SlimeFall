@@ -5,7 +5,12 @@ import 'package:slime_fall/services/authentication/user_entity.dart';
 import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth, FirebaseAuthException;
 
 class AuthenticationService implements IAuthenticationService {
-  @override
+
+  AuthenticationService() {
+    initialize();
+  }
+
+    @override
   Future<void> initialize() async {
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   }
