@@ -20,32 +20,20 @@ class AuthenticationService implements IAuthenticationService {
   }
 
   @override
-  Future<UserEntity> login({required String email, required String password}) async {
+  Future<bool> login({required String email, required String password}) async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
-      final user = currentUser;
-      if (user != null) {
-        return user;
-      }
-      else {
-        throw Exception('User not logged in!');
-      }
+      return true;
     } on FirebaseAuthException catch (e) {
       throw Exception('Was not able to login user: ${e.message}');
     }
   }
 
   @override
-  Future<UserEntity> register({required String email, required String password}) async {
+  Future<bool> register({required String email, required String password}) async {
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
-      final user = currentUser;
-      if (user != null) {
-        return user;
-      }
-      else {
-        throw Exception('User not logged in!');
-      }
+      return true;
     } on FirebaseAuthException catch (e) {
       throw Exception('Was not able to register user: ${e.message}');
     }
