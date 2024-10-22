@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:slime_fall/firebase_options.dart';
 import 'package:slime_fall/services/authentication/authentication_service_interface.dart';
 import 'package:slime_fall/services/authentication/user_entity.dart';
-import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth;
+import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth, FirebaseAuthException;
 
 class AuthenticationService implements IAuthenticationService {
   @override
@@ -20,15 +20,35 @@ class AuthenticationService implements IAuthenticationService {
   }
 
   @override
-  Future<void> login({required String email, required String password}) {
-    // TODO: implement login
-    throw UnimplementedError();
+  Future<UserEntity> login({required String email, required String password}) async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+      final user = currentUser;
+      if (user != null) {
+        return user;
+      }
+      else {
+        throw Exception('User not logged in!');
+      }
+    } on FirebaseAuthException catch (e) {
+      throw Exception('Was not able to login user: ${e.message}');
+    }
   }
 
   @override
-  Future<void> register({required String email, required String password}) {
-    // TODO: implement register
-    throw UnimplementedError();
+  Future<UserEntity> register({required String email, required String password}) async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
+      final user = currentUser;
+      if (user != null) {
+        return user;
+      }
+      else {
+        throw Exception('User not logged in!');
+      }
+    } on FirebaseAuthException catch (e) {
+      throw Exception('Was not able to register user: ${e.message}');
+    }
   }
 
 }
