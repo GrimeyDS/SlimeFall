@@ -1,11 +1,11 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:slime_fall/Constants/assets.dart';
-import 'package:slime_fall/Constants/configuration.dart';
-import 'package:slime_fall/Constants/slime_movement.dart';
-import 'package:slime_fall/class%20library/components/platform/platform_group.dart';
-import 'package:slime_fall/class%20library/components/player/effects.dart';
-import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
+import 'package:slime_fall/game/constants/assets.dart';
+import 'package:slime_fall/game/constants/configuration.dart';
+import 'package:slime_fall/game/constants/slime_movement.dart';
+import 'package:slime_fall/game/components/platform/platform_group.dart';
+import 'package:slime_fall/game/components/player/effects.dart';
+import 'package:slime_fall/game/slime_fall_game.dart';
 
 class Slime extends SpriteGroupComponent<SlimeMovement> 
   with HasGameRef<SlimeFallGame>, CollisionCallbacks {

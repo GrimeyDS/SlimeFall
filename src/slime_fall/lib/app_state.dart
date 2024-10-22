@@ -1,12 +1,12 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-import 'package:slime_fall/Class%20Library/overlays/dash_cooldown_overlay.dart';
-import 'package:slime_fall/User/login_page.dart';
-import 'package:slime_fall/User/register_page.dart';
+import 'package:slime_fall/game/overlays/dash_cooldown_overlay.dart';
+import 'package:slime_fall/pages/login_page.dart';
+import 'package:slime_fall/pages/register_page.dart';
 import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
 import 'package:slime_fall/class%20library/overlays/score_overlay.dart';
 import 'package:slime_fall/main.dart';
-import 'package:slime_fall/Constants/configuration.dart';
+import 'package:slime_fall/game/constants/configuration.dart';
 
 class AppState extends State<GameApp> {
   bool isLoggedIn = false;
