@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:slime_fall/firebase_options.dart';
+import 'package:slime_fall/services/authentication/authentication_constants.dart';
 import 'package:slime_fall/services/authentication/authentication_service_interface.dart';
 import 'package:slime_fall/services/authentication/user_entity.dart';
 import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth, FirebaseAuthException;
@@ -30,7 +31,7 @@ class AuthenticationService implements IAuthenticationService {
       await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
       return true;
     } on FirebaseAuthException catch (e) {
-      throw Exception('Was not able to login user: ${e.message}');
+      throw Exception(AuthConstants.unableToLogin + e.message.toString());
     }
   }
 
@@ -40,7 +41,7 @@ class AuthenticationService implements IAuthenticationService {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
       return true;
     } on FirebaseAuthException catch (e) {
-      throw Exception('Was not able to register user: ${e.message}');
+      throw Exception(AuthConstants.unableToRegister + e.message.toString());
     }
   }
 

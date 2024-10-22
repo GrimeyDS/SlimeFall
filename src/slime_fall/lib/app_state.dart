@@ -8,6 +8,7 @@ import 'package:slime_fall/game/slime_fall_game.dart';
 import 'package:slime_fall/game/overlays/score_overlay.dart';
 import 'package:slime_fall/main.dart';
 import 'package:slime_fall/game/constants/configuration.dart';
+import 'package:slime_fall/services/authentication/authentication_constants.dart';
 import 'package:slime_fall/services/authentication/authentication_service.dart';
 
 class AppState extends State<GameApp> {
@@ -30,17 +31,20 @@ class AppState extends State<GameApp> {
       final session = await SharedPreferences.getInstance();
       final loggedUser = authService.currentUser;
       if (loggedUser != null) { 
-        await session.setString('loggedUser', loggedUser.id); 
+        await session.setString(AuthConstants.userSession, loggedUser.id); 
       }
       else {
         setState(() {
-          errorMessage = 'User not found';
+          errorMessage = AuthConstants.userNotFound;
         });
       }
     }
     catch (e) {
       setState(() {
-        errorMessage = e.toString();
+        errorMessage = e.toString().replaceAll(AuthConstants.exceptionError, '');
+        if (errorMessage.contains(AuthConstants.internalError)) {
+          errorMessage = AuthConstants.standardLoginError;
+        }
       });
     }
   }
@@ -51,27 +55,28 @@ class AppState extends State<GameApp> {
       if (result) {
         setState(() {
           isRegistering = false;
-          errorMessage = 'Registration successful, please login!';
+          errorMessage = AuthConstants.registerSuccess;
         });
       }
     }
     catch (e) {
       setState(() {
-        errorMessage = e.toString();
+        errorMessage = e.toString().replaceAll(AuthConstants.exceptionError, '');
+        if (errorMessage.contains(AuthConstants.internalError)) {
+          errorMessage = AuthConstants.standardRegisterError;
+        }
       });
     }
   }
 
   void switchToRegister() {
     setState(() {
-      errorMessage = '';
       isRegistering = true;
     });
   }
 
   void switchToLogin() {
     setState(() {
-      errorMessage = '';
       isRegistering = false;
     });
   }
