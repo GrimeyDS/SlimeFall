@@ -1,6 +1,5 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:slime_fall/game/overlays/dash_cooldown_overlay.dart';
 import 'package:slime_fall/pages/login_page.dart';
 import 'package:slime_fall/pages/register_page.dart';
@@ -28,10 +27,9 @@ class AppState extends State<GameApp> {
           errorMessage = '';
         });
       }
-      final session = await SharedPreferences.getInstance();
       final loggedUser = authService.currentUser;
       if (loggedUser != null) { 
-        await session.setString(AuthConstants.userSession, loggedUser.id); 
+        // safe data
       }
       else {
         setState(() {
