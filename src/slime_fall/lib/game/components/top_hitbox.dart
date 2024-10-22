@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
+import 'package:slime_fall/game/slime_fall_game.dart';
 
 class TopHitbox extends RectangleComponent with HasGameRef<SlimeFallGame> {
   @override

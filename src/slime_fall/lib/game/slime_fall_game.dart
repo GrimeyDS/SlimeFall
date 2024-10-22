@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:slime_fall/game/components/top_hitbox.dart';
 import 'package:slime_fall/game/constants/configuration.dart';
 import 'package:slime_fall/game/constants/position.dart';
-import 'package:slime_fall/class%20library/components/background.dart';
-import 'package:slime_fall/class%20library/components/platform/platform_group.dart';
-import 'package:slime_fall/class%20library/components/spike/spike_group.dart';
-import 'package:slime_fall/class%20library/components/player/slime.dart';
+import 'package:slime_fall/game/components/background.dart';
+import 'package:slime_fall/game/components/platform/platform_group.dart';
+import 'package:slime_fall/game/components/spike/spike_group.dart';
+import 'package:slime_fall/game/components/player/slime.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 
 class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
