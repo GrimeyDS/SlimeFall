@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
+import 'package:slime_fall/game/slime_fall_game.dart';
 
 class DashCooldownOverlay extends StatelessWidget {
   final Color foreGroundColor = Colors.white;

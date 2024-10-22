@@ -2,7 +2,7 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/particles.dart';
 import 'package:flutter/material.dart';
-import 'package:slime_fall/Constants/configuration.dart';
+import 'package:slime_fall/game/constants/configuration.dart';
 
 class SlimeEffects {
 

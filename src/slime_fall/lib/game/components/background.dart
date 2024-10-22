@@ -1,9 +1,9 @@
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
-import 'package:slime_fall/Constants/assets.dart';
+import 'package:slime_fall/game/constants/assets.dart';
 import 'package:flame/parallax.dart';
-import 'package:slime_fall/Constants/configuration.dart';
-import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
+import 'package:slime_fall/game/constants/configuration.dart';
+import 'package:slime_fall/game/slime_fall_game.dart';
 
 class Background extends ParallaxComponent<SlimeFallGame> { 
 

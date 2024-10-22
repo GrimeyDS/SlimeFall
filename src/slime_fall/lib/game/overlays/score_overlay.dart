@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:slime_fall/class%20library/game/slime_fall_game.dart';
+import 'package:slime_fall/game/slime_fall_game.dart';
 
 class ScoreOverlay extends StatelessWidget {
   final SlimeFallGame game;
 
-  const ScoreOverlay({Key? key, required this.game}) : super(key: key);
+  const ScoreOverlay({super.key, required this.game});
 
   @override
   Widget build(BuildContext context) {
