@@ -1,5 +1,7 @@
 # Inhoudstafel
 
+[Roadmap](https://github.com/howest-gp-ipr/st-1-a-ee-project-SvenDS91/blob/dev/reports/Roadmap.md#roadmap--planning)
+
 ## Dart
 
 [Variabelen en Collecties](https://github.com/howest-gp-ipr/st-1-a-ee-project-SvenDS91/blob/dev/reports/research/Dart.md#variabelen-en-collecties)
