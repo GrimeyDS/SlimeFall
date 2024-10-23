@@ -1,6 +1,7 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:slime_fall/game/overlays/dash_cooldown_overlay.dart';
+import 'package:slime_fall/game/overlays/game_over_overlay.dart';
 import 'package:slime_fall/game/overlays/start_screen_overlay.dart';
 import 'package:slime_fall/pages/login_page.dart';
 import 'package:slime_fall/pages/register_page.dart';
@@ -80,6 +81,10 @@ class AppState extends State<GameApp> {
     });
   }
 
+  void showHighScores() {
+    // show high scores
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -93,7 +98,8 @@ class AppState extends State<GameApp> {
                   overlayBuilderMap: {
                     Config.dashCooldownOverlay: (_, SlimeFallGame game) => DashCooldownOverlay(game: game),
                     Config.scoreOverlay: (_, SlimeFallGame game) => ScoreOverlay(game: game),
-                    Config.startScreenOverlay: (_, SlimeFallGame game) => StartScreenOverlay(onStart: game.startGame),
+                    Config.startScreenOverlay: (_, SlimeFallGame game) => StartScreenOverlay(onStart: game.resetGame),
+                    Config.gameOverOverlay: (_, SlimeFallGame game) => GameOverOverlay(onReset: game.resetGame, onShowHighScores: showHighScores),
                   },
                 )
 
