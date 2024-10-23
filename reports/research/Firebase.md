@@ -1,4 +1,6 @@
 # Firebase
+
+## What
 Firebase is een door Google ontwikkeld platform dat een verscheidenheid aan tools en services biedt waarmee ontwikkelaars backend tools kunnen gebruiken.
 Hier zijn enkele belangrijke functies van Firebase:
 
