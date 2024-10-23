@@ -148,7 +148,7 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
         isOnPlatform = true;
         break;
       default:
-        gameRef.pauseEngine();
+        gameRef.endGame();
         break;
     }
   }
