@@ -28,7 +28,7 @@ class AuthenticationService implements IAuthenticationService {
   @override
   Future<bool> login({required String email, required String password}) async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+      await FirebaseAuth.instance.signInWithEmailAndPassword(email: email.trim(), password: password);
       return true;
     } on FirebaseAuthException catch (e) {
       throw Exception(AuthConstants.unableToLogin + e.message.toString());
@@ -38,7 +38,7 @@ class AuthenticationService implements IAuthenticationService {
   @override
   Future<bool> register({required String email, required String password}) async {
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email.trim(), password: password);
       return true;
     } on FirebaseAuthException catch (e) {
       throw Exception(AuthConstants.unableToRegister + e.message.toString());
