@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:slime_fall/pages/components/game_title.dart';
 import 'package:slime_fall/pages/components/submit_button.dart';
 
 class StartScreenOverlay extends StatelessWidget {
@@ -12,14 +13,7 @@ class StartScreenOverlay extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text(
-            'Slime Fall',
-            style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
+          const GameTitle(title: 'Start Game'),
           const SizedBox(height: 30),
           SubmitButton(text: 'Start', onPressed: onStart)
         ],
