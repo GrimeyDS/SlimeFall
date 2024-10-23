@@ -98,7 +98,7 @@ class AppState extends State<GameApp> {
                   overlayBuilderMap: {
                     Config.dashCooldownOverlay: (_, SlimeFallGame game) => DashCooldownOverlay(game: game),
                     Config.scoreOverlay: (_, SlimeFallGame game) => ScoreOverlay(game: game),
-                    Config.startScreenOverlay: (_, SlimeFallGame game) => StartScreenOverlay(onStart: game.resetGame),
+                    Config.startScreenOverlay: (_, SlimeFallGame game) => StartScreenOverlay(onStart: game.startGame),
                     Config.gameOverOverlay: (_, SlimeFallGame game) => GameOverOverlay(onReset: game.resetGame, onShowHighScores: showHighScores),
                   },
                 )
