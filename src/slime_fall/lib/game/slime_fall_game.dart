@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
+import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:slime_fall/game/components/top_hitbox.dart';
@@ -15,40 +16,14 @@ import 'package:sensors_plus/sensors_plus.dart';
 class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
   // Interval to repeat platform spawning.
   Timer interval = Timer(Config.platformInterval, repeat: true);
-  final Slime slime = Slime();
-  double gyroX = 0;
-  double gyroY = 0;
-  int score = 0;
-  bool isGameStarted = false;
-  bool isGameOver = false;
+  late Slime slime;
+  late double gyroX;
+  late double gyroY;
+  late int score;
 
   @override
   Future<void> onLoad() async {
-    final int fullSize = (size.y * 1.55).toInt();
-    const int initialSpawnPoint = 280;
-    const int spawnInterval = 120;
-
-    // ~/ is used to return an integer.
-    final int amountOfInitialPlatforms = (fullSize - initialSpawnPoint) ~/ spawnInterval;
-
-    addAll([
-      Background(),
-      slime,
-      SpikeGroup(Position.left),
-      SpikeGroup(Position.right),
-      TopHitbox(),
-    ]);
-
     mainMenuOpen();
-
-    // Added manual platforms for initial spawns.
-    for (int platform = 1; platform <= amountOfInitialPlatforms; platform++)
-    {
-      add(PlatformGroup(initialSpawnPoint + (spawnInterval * platform)));
-    }
-
-    // Spawn new platform
-    interval.onTick = () => add(PlatformGroup(0));
     startGyroscopeListener();
   }
 
@@ -86,6 +61,40 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
     updateScore(dt);
   }
 
+  void createGame() {
+    interval = Timer(Config.platformInterval, repeat: true);
+    slime = Slime();
+    gyroX = 0;
+    gyroY = 0;
+    score = 0;
+
+    addAll([
+      Background(),
+      slime,
+      SpikeGroup(Position.left),
+      SpikeGroup(Position.right),
+      TopHitbox(),
+    ]);
+
+    // Spawn new platform
+    interval.onTick = () => add(PlatformGroup(0));
+  }
+
+  void spawnInitialPlatforms() {
+    final int fullSize = (size.y * 1.55).toInt();
+    const int initialSpawnPoint = 280;
+    const int spawnInterval = 120;
+
+    // ~/ is used to return an integer.
+    final int amountOfInitialPlatforms = (fullSize - initialSpawnPoint) ~/ spawnInterval;
+
+        // Added manual platforms for initial spawns.
+    for (int platform = 1; platform <= amountOfInitialPlatforms; platform++)
+    {
+      add(PlatformGroup(initialSpawnPoint + (spawnInterval * platform)));
+    }
+  }
+
 
   void updateScore(dt) {
     overlays.remove(Config.scoreOverlay);
@@ -93,23 +102,28 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
     overlays.add(Config.scoreOverlay);
   }
 
-    void resetGame() {
-    isGameStarted = true;
-    isGameOver = false;
-    overlays.remove(Config.startScreenOverlay);
-    overlays.remove(Config.gameOverOverlay);
+  void resetGame() {
+    removeAll(children);
+    createGame();
+    startGame();
     resumeEngine();
   }
 
   void mainMenuOpen() {
-    isGameStarted = false;
-    overlays.add(Config.startScreenOverlay);
+    createGame();
     pauseEngine();
+    overlays.add(Config.startScreenOverlay);
+  }
+
+  void startGame() {
+    overlays.remove(Config.startScreenOverlay);
+    overlays.remove(Config.gameOverOverlay);
+    resumeEngine();
+    spawnInitialPlatforms();
   }
 
   void endGame() {
-    isGameStarted = false;
-    isGameOver = true;
+    pauseEngine();
     overlays.add(Config.gameOverOverlay);
   }
 }
