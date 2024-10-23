@@ -20,13 +20,13 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
   double gyroY = 0;
   int score = 0;
   bool isGameStarted = false;
+  bool isGameOver = false;
 
   @override
   Future<void> onLoad() async {
     final int fullSize = (size.y * 1.55).toInt();
     const int initialSpawnPoint = 280;
     const int spawnInterval = 120;
-    pauseGame();
 
     // ~/ is used to return an integer.
     final int amountOfInitialPlatforms = (fullSize - initialSpawnPoint) ~/ spawnInterval;
@@ -38,6 +38,8 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
       SpikeGroup(Position.right),
       TopHitbox(),
     ]);
+
+    mainMenuOpen();
 
     // Added manual platforms for initial spawns.
     for (int platform = 1; platform <= amountOfInitialPlatforms; platform++)
@@ -91,15 +93,23 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
     overlays.add(Config.scoreOverlay);
   }
 
-    void startGame() {
+    void resetGame() {
     isGameStarted = true;
+    isGameOver = false;
     overlays.remove(Config.startScreenOverlay);
+    overlays.remove(Config.gameOverOverlay);
     resumeEngine();
   }
 
-  void pauseGame() {
+  void mainMenuOpen() {
     isGameStarted = false;
     overlays.add(Config.startScreenOverlay);
     pauseEngine();
+  }
+
+  void endGame() {
+    isGameStarted = false;
+    isGameOver = true;
+    overlays.add(Config.gameOverOverlay);
   }
 }
