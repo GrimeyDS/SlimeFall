@@ -19,12 +19,14 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
   double gyroX = 0;
   double gyroY = 0;
   int score = 0;
+  bool isGameStarted = false;
 
   @override
   Future<void> onLoad() async {
     final int fullSize = (size.y * 1.55).toInt();
     const int initialSpawnPoint = 280;
     const int spawnInterval = 120;
+    pauseGame();
 
     // ~/ is used to return an integer.
     final int amountOfInitialPlatforms = (fullSize - initialSpawnPoint) ~/ spawnInterval;
@@ -60,9 +62,9 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
               context: e,
               builder: (context) {
                 return const AlertDialog(
-                  title: Text("Sensor Not Found"),
+                  title: Text(Config.sensorNotFound),
                   content: Text(
-                      "It seems that your device doesn't support Gyroscope Sensor"),
+                      Config.gyroNotFound),
                 );
               });
         },);
@@ -87,5 +89,17 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
     overlays.remove(Config.scoreOverlay);
     score += (interval.current * 1.1).toInt(); // Score is based on how many platforms have been spawned.
     overlays.add(Config.scoreOverlay);
+  }
+
+    void startGame() {
+    isGameStarted = true;
+    overlays.remove(Config.startScreenOverlay);
+    resumeEngine();
+  }
+
+  void pauseGame() {
+    isGameStarted = false;
+    overlays.add(Config.startScreenOverlay);
+    pauseEngine();
   }
 }
