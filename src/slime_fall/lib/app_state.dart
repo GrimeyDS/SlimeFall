@@ -2,6 +2,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:slime_fall/game/overlays/dash_cooldown_overlay.dart';
 import 'package:slime_fall/game/overlays/game_over_overlay.dart';
+import 'package:slime_fall/game/overlays/highscore_overlay.dart';
 import 'package:slime_fall/game/overlays/start_screen_overlay.dart';
 import 'package:slime_fall/pages/login_page.dart';
 import 'package:slime_fall/pages/register_page.dart';
@@ -30,10 +31,7 @@ class AppState extends State<GameApp> {
         });
       }
       final loggedUser = authService.currentUser;
-      if (loggedUser != null) { 
-        // safe data
-      }
-      else {
+      if (loggedUser == null) { 
         setState(() {
           errorMessage = AuthConstants.userNotFound;
         });
@@ -81,8 +79,8 @@ class AppState extends State<GameApp> {
     });
   }
 
-  void showHighScores() {
-    // show high scores
+  List<int> getHighScores() {
+    return [0, 0, 0, 0, 0];
   }
 
   @override
@@ -99,7 +97,8 @@ class AppState extends State<GameApp> {
                     Config.dashCooldownOverlay: (_, SlimeFallGame game) => DashCooldownOverlay(game: game),
                     Config.scoreOverlay: (_, SlimeFallGame game) => ScoreOverlay(game: game),
                     Config.startScreenOverlay: (_, SlimeFallGame game) => StartScreenOverlay(onStart: game.startGame),
-                    Config.gameOverOverlay: (_, SlimeFallGame game) => GameOverOverlay(onReset: game.resetGame, onShowHighScores: showHighScores),
+                    Config.gameOverOverlay: (_, SlimeFallGame game) => GameOverOverlay(onReset: game.resetGame, onShowHighScores: game.showHighScores),
+                    Config.highScoreOverlay: (_, SlimeFallGame game) => HighScoresOverlay(highScores: getHighScores()),
                   },
                 )
 
