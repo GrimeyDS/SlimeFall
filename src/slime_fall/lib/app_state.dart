@@ -2,7 +2,6 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:slime_fall/game/overlays/dash_cooldown_overlay.dart';
 import 'package:slime_fall/game/overlays/game_over_overlay.dart';
-import 'package:slime_fall/game/overlays/highscore_overlay.dart';
 import 'package:slime_fall/game/overlays/start_screen_overlay.dart';
 import 'package:slime_fall/pages/login_page.dart';
 import 'package:slime_fall/pages/register_page.dart';
@@ -12,6 +11,7 @@ import 'package:slime_fall/main.dart';
 import 'package:slime_fall/game/constants/configuration.dart';
 import 'package:slime_fall/services/authentication/authentication_constants.dart';
 import 'package:slime_fall/services/authentication/authentication_service.dart';
+import 'package:slime_fall/services/authentication/authentication_service_interface.dart';
 
 class AppState extends State<GameApp> {
   bool isLoggedIn = false;
@@ -19,7 +19,7 @@ class AppState extends State<GameApp> {
   bool isLoading = false;
   String errorMessage = '';
 
-  final AuthenticationService authService = AuthenticationService();
+  final IAuthenticationService authService = AuthenticationService();
 
   Future<void> handleLogin(String email, String password) async {
     try {
@@ -79,10 +79,6 @@ class AppState extends State<GameApp> {
     });
   }
 
-  List<int> getHighScores() {
-    return [0, 0, 0, 0, 0];
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -97,8 +93,7 @@ class AppState extends State<GameApp> {
                     Config.dashCooldownOverlay: (_, SlimeFallGame game) => DashCooldownOverlay(game: game),
                     Config.scoreOverlay: (_, SlimeFallGame game) => ScoreOverlay(game: game),
                     Config.startScreenOverlay: (_, SlimeFallGame game) => StartScreenOverlay(onStart: game.startGame),
-                    Config.gameOverOverlay: (_, SlimeFallGame game) => GameOverOverlay(onReset: game.resetGame, onShowHighScores: game.showHighScores),
-                    Config.highScoreOverlay: (_, SlimeFallGame game) => HighScoresOverlay(highScores: getHighScores()),
+                    Config.gameOverOverlay: (_, SlimeFallGame game) => GameOverOverlay(onReset: game.resetGame, score: game.score, highScore: game.highScore),
                   },
                 )
 
