@@ -106,7 +106,6 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
     removeAll(children);
     createGame();
     startGame();
-    resumeEngine();
   }
 
   void mainMenuOpen() {
