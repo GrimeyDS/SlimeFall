@@ -76,7 +76,10 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
     ]);
 
     // Spawn new platform
-    interval.onTick = () => add(PlatformGroup(0));
+    interval.onTick = () {
+      add(PlatformGroup(0));
+      score += 1;
+    };
   }
 
   void spawnInitialPlatforms() {
@@ -97,7 +100,6 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
 
   void updateScore(dt) {
     overlays.remove(Config.scoreOverlay);
-    score += (interval.current * 1.1).toInt(); // Score is based on how many platforms have been spawned.
     overlays.add(Config.scoreOverlay);
   }
 
