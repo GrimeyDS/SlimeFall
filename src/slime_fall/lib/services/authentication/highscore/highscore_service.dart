@@ -3,11 +3,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:slime_fall/firebase_options.dart';
 import 'package:slime_fall/services/authentication/authentication_service.dart';
 import 'package:slime_fall/services/authentication/authentication_service_interface.dart';
+import 'package:slime_fall/services/authentication/highscore/highscore_constants.dart';
 import 'package:slime_fall/services/authentication/highscore/highscore_service_interface.dart';
 
 class HighscoreService implements IHighscoreService {
   late IAuthenticationService authService;
   late FirebaseFirestore firestore;
+  bool isSaving = false;
 
   HighscoreService() {
     initialize();
@@ -21,40 +23,48 @@ class HighscoreService implements IHighscoreService {
   }
 
   @override
-  Future<List<int>> getHighscores() async {
+  Future<int> getHighScore() async {
     final user = authService.currentUser;
     if (user == null) {
-      throw Exception('User not found');
+      throw Exception(HighscoreConstants.userNotFound);
     }
-
-    List<int> highscores = [];
 
     try {
-      QuerySnapshot querySnapshot = await firestore.collection(user.id).get();
-      for (var doc in querySnapshot.docs) {
-        highscores.add(doc['score']);
-      }
-    }
-    catch (e) {
-      throw Exception('Unable to get highscores');
-    }
+      final docRef = await firestore.collection(HighscoreConstants.dbTable).doc(user.id).get();
 
-    highscores.sort((a, b) => b.compareTo(a));
-    return highscores.take(5).toList();
+      if (docRef.exists) {
+        return docRef.data()?[HighscoreConstants.scoreField] ?? 0;
+      } 
+      else {
+        return 0;
+      }
+    } catch (e) {
+      throw Exception(HighscoreConstants.unableToGetScore);
+    }
   }
 
   @override
-  Future<void> saveHighscore(int score) async {
-    final user = authService.currentUser;
-    if (user == null) {
-      throw Exception('User not found');
+  Future<void> saveHighScore(int score) async {
+    if (isSaving) {
+      return;
     }
 
+    final user = authService.currentUser;
+
+    if (user == null) {
+      throw Exception(HighscoreConstants.userNotFound);
+    }
+
+    isSaving = true;
     try {
-      await firestore.collection(user.id).add({'score': score});
+      await firestore.collection(HighscoreConstants.dbTable)
+                      .doc(user.id)
+                      .set({HighscoreConstants.scoreField: score});
     }
     catch (e) {
-      throw Exception('Unable to save highscore');
+      isSaving = false;
+      throw Exception(HighscoreConstants.unableToSaveScore);
     }
+    isSaving = false;
   }
 }
