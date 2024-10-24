@@ -90,7 +90,7 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
   void spawnInitialPlatforms() {
     final int fullSize = (size.y * 1.55).toInt();
     const int initialSpawnPoint = 280;
-    const int spawnInterval = 120;
+    const int spawnInterval = 145;
 
     // ~/ is used to return an integer.
     final int amountOfInitialPlatforms = (fullSize - initialSpawnPoint) ~/ spawnInterval;
