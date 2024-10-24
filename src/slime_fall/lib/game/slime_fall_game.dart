@@ -21,13 +21,14 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
   late double gyroX;
   late double gyroY;
   late int score;
-  late IHighscoreService highscoreService;
+  int highScore = 0;
+  late IHighscoreService highScoreService;
 
   @override
   Future<void> onLoad() async {
     mainMenuOpen();
     startGyroscopeListener();
-    highscoreService = HighscoreService();
+    highScoreService = HighscoreService();
   }
 
   void startGyroscopeListener() {
@@ -126,13 +127,13 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
     spawnInitialPlatforms();
   }
 
-  void endGame() {
+  Future<void> endGame() async {
     pauseEngine();
+    highScore = await highScoreService.getHighScore();
     overlays.add(Config.gameOverOverlay);
-    highscoreService.saveHighscore(score);
-  }
 
-  void showHighScores() {
-    overlays.add(Config.highScoreOverlay);
+    if (score > highScore) {
+      await highScoreService.saveHighScore(score);
+    }
   }
 }
