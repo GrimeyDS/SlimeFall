@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:slime_fall/pages/components/game_title.dart';
+import 'package:slime_fall/pages/components/score_text.dart';
 import 'package:slime_fall/pages/components/submit_button.dart';
+import 'package:slime_fall/services/authentication/highscore/highscore_constants.dart';
 
 class GameOverOverlay extends StatelessWidget {
   final VoidCallback onReset;
-  final VoidCallback onShowHighScores;
+  final int score;
+  final int highScore;
 
   const GameOverOverlay({
     super.key,
     required this.onReset,
-    required this.onShowHighScores,
+    required this.score,
+    required this.highScore,
   });
 
   @override
@@ -18,11 +22,25 @@ class GameOverOverlay extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const GameTitle(title: 'Game Over'),
+          const GameTitle(title: HighscoreConstants.gameOver),
           const SizedBox(height: 30),
-          SubmitButton(text: 'Restart', onPressed: onReset),
-          const SizedBox(height: 20),
-          SubmitButton(text: 'Highscores', onPressed: onShowHighScores)
+          AnimatedOpacity(
+            opacity: 1.0,
+            duration: const Duration(seconds: 1),
+            child: Column(
+              children: [
+                const ScoreText(text: HighscoreConstants.score),
+                const SizedBox(height: 10),
+                AchievedScoreText(score: score.toString(), color: Colors.yellow),
+                const SizedBox(height: 20),
+                const ScoreText(text: HighscoreConstants.highScore),
+                const SizedBox(height: 10),
+                AchievedScoreText(score: highScore.toString(), color: Colors.blue)
+              ],
+            ),
+          ),
+          const SizedBox(height: 40),
+          SubmitButton(text: HighscoreConstants.retry, onPressed: onReset)
         ],
       ),
     );

@@ -11,6 +11,7 @@ import 'package:slime_fall/main.dart';
 import 'package:slime_fall/game/constants/configuration.dart';
 import 'package:slime_fall/services/authentication/authentication_constants.dart';
 import 'package:slime_fall/services/authentication/authentication_service.dart';
+import 'package:slime_fall/services/authentication/authentication_service_interface.dart';
 
 class AppState extends State<GameApp> {
   bool isLoggedIn = false;
@@ -18,7 +19,7 @@ class AppState extends State<GameApp> {
   bool isLoading = false;
   String errorMessage = '';
 
-  final AuthenticationService authService = AuthenticationService();
+  final IAuthenticationService authService = AuthenticationService();
 
   Future<void> handleLogin(String email, String password) async {
     try {
@@ -30,10 +31,7 @@ class AppState extends State<GameApp> {
         });
       }
       final loggedUser = authService.currentUser;
-      if (loggedUser != null) { 
-        // safe data
-      }
-      else {
+      if (loggedUser == null) { 
         setState(() {
           errorMessage = AuthConstants.userNotFound;
         });
@@ -81,10 +79,6 @@ class AppState extends State<GameApp> {
     });
   }
 
-  void showHighScores() {
-    // show high scores
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -99,7 +93,7 @@ class AppState extends State<GameApp> {
                     Config.dashCooldownOverlay: (_, SlimeFallGame game) => DashCooldownOverlay(game: game),
                     Config.scoreOverlay: (_, SlimeFallGame game) => ScoreOverlay(game: game),
                     Config.startScreenOverlay: (_, SlimeFallGame game) => StartScreenOverlay(onStart: game.startGame),
-                    Config.gameOverOverlay: (_, SlimeFallGame game) => GameOverOverlay(onReset: game.resetGame, onShowHighScores: showHighScores),
+                    Config.gameOverOverlay: (_, SlimeFallGame game) => GameOverOverlay(onReset: game.resetGame, score: game.score, highScore: game.highScore),
                   },
                 )
 
