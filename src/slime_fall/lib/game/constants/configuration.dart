@@ -26,6 +26,7 @@ class Config {
   static const String scoreOverlay = 'ScoreOverlay';
   static const String startScreenOverlay = 'StartScreenOverlay';
   static const String gameOverOverlay = 'GameOverOverlay';
+  static const String highScoreOverlay = 'HighScoreOverlay';
 
   static const String sensorNotFound = 'No gyroscope sensor found';
   static const String gyroNotFound = 'It seems that your device doesnt support Gyroscope Sensor';
