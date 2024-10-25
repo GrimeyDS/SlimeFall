@@ -1,5 +1,7 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame/flame.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:slime_fall/game/constants/assets.dart';
 import 'package:slime_fall/game/constants/configuration.dart';
 import 'package:slime_fall/game/constants/slime_movement.dart';
@@ -64,8 +66,9 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
       currentCooldown -= dt;
       cooldownPercent = currentCooldown / Config.dashCooldown;
     }
-    else {
+    else if (isOnCooldown) {
       isOnCooldown = false;
+      FlameAudio.play(Assets.dashReadySFX);
     }
 
     gameRef.overlays.add(Config.dashCooldownOverlay);
@@ -97,7 +100,6 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
       // Change sprite image depending on movement.
       // A treshold that ensures the change between newPosition and lastPosition is significant enough before updating the movement state.
       double deathZoneMovement = 0.1;
-      
       if (newPosition < lastPosition - deathZoneMovement) {
         current = SlimeMovement.left;
       }
@@ -118,6 +120,8 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
     if (isOnPlatform && !isDashing && !isOnCooldown) {
       isDashing = true;
       position.y += Config.dashDistance;
+
+      FlameAudio.play(Assets.dashSFX);
 
       isOnCooldown = true;
       currentCooldown = Config.dashCooldown;
@@ -148,6 +152,7 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
         isOnPlatform = true;
         break;
       default:
+        FlameAudio.play(Assets.deathSFX);
         gameRef.endGame();
         break;
     }
