@@ -9,7 +9,15 @@ class StartScreenOverlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Stack(
+      children: [
+      Positioned.fill(
+        child: Image.asset(
+        'assets/images/background.png',
+        fit: BoxFit.cover,
+        ),
+      ),
+      Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -18,6 +26,6 @@ class StartScreenOverlay extends StatelessWidget {
           SubmitButton(text: 'Start', onPressed: onStart)
         ],
       ),
-    );
+    )]);
   }
 }
