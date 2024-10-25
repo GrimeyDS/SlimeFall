@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flame/components.dart';
+import 'package:slime_fall/game/components/coin.dart';
 import 'package:slime_fall/game/constants/configuration.dart';
 import 'package:slime_fall/game/constants/position.dart';
 import 'package:slime_fall/game/components/platform/platform.dart';
@@ -7,6 +8,7 @@ import 'package:slime_fall/game/slime_fall_game.dart';
 
 class PlatformGroup extends PositionComponent with HasGameRef<SlimeFallGame> {
   final int startingPosition;
+  final Random random = Random();
   
   PlatformGroup(this.startingPosition);
 
@@ -32,6 +34,12 @@ class PlatformGroup extends PositionComponent with HasGameRef<SlimeFallGame> {
       Platform(width: leftPlatformWidth, platformPosition: Position.left),
       Platform(width: rightPlatformWidth, platformPosition: Position.right)
     ]);
+
+    if (random.nextDouble() < 0.2) { 
+      final collectible = Coin();
+      collectible.position = Vector2(random.nextDouble() * screenWidth, -37);  // Position randomly on x-axis and slightly above the platform.
+      add(collectible);
+    }
   }
 
   @override
@@ -40,7 +48,7 @@ class PlatformGroup extends PositionComponent with HasGameRef<SlimeFallGame> {
     // Position of the group will change with the speed of the game. dt => ticks from the Flame Game.
     position.y -= Config.scrollSpeed * dt;
 
-    if (position.y < - 10) removeFromParent();
+    if (position.y < -10) removeFromParent();
   }
 }
 

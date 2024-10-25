@@ -14,4 +14,5 @@ class Assets {
   static const String dashSFX = 'dash.wav';
   static const String deathSFX = 'death.wav';
   static const String dashReadySFX = 'dashReady.wav';
+  static const String coinSFX = 'coin.mp3';
 }
