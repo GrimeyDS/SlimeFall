@@ -82,6 +82,9 @@ flutter:
   # see https://flutter.dev/to/font-from-package
   assets:
     - assets/audio/background.mp3
+    - assets/audio/dash.wav
+    - assets/audio/death.wav
+    - assets/audio/dashReady.wav
     - assets/images/background.png
     - assets/images/platform.png
     - assets/images/slime_idle.png
