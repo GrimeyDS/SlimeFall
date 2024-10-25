@@ -16,7 +16,7 @@ import 'package:slime_fall/services/authentication/highscore/highscore_service_i
 
 class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
   // Interval to repeat platform spawning.
-  Timer interval = Timer(Config.platformInterval, repeat: true);
+  late Timer interval;
   late Slime slime;
   late double gyroX;
   late double gyroY;
@@ -63,10 +63,15 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
     interval.update(dt);
     slime.changePosition(gyroX * dt);
     updateScore(dt);
+
+    if (score % 10 == 0) {
+      Config.scrollSpeed += 0.2;
+    }
   }
 
   void createGame() {
     interval = Timer(Config.platformInterval, repeat: true);
+    Config.scrollSpeed = 150.0;
     slime = Slime();
     gyroX = 0;
     gyroY = 0;
@@ -90,7 +95,7 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
   void spawnInitialPlatforms() {
     final int fullSize = (size.y * 1.55).toInt();
     const int initialSpawnPoint = 280;
-    const int spawnInterval = 120;
+    const int spawnInterval = 145;
 
     // ~/ is used to return an integer.
     final int amountOfInitialPlatforms = (fullSize - initialSpawnPoint) ~/ spawnInterval;
