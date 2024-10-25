@@ -13,7 +13,7 @@ class Config {
   static const double dashCooldown = 5;
 
   // Platforms
-  static const double scrollSpeed = 150.0;
+  static double scrollSpeed = 150.0;
   static const double platformHeight = 25.0;
   static const double platformInterval = 1;
   static final double platformSpacing = slimeSize.x * 1.3;
