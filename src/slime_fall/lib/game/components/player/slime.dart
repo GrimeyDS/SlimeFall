@@ -1,5 +1,6 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame/flame.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:slime_fall/game/constants/assets.dart';
 import 'package:slime_fall/game/constants/configuration.dart';
@@ -144,16 +145,11 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
       case 'Platform':
         // Set slime position to platform group's y position so that slime always lands on platform instead of sometimes bugging out through platform.
         // We need to find the platform group's y position by retrieving the platform's parent and getting it's size. 
-        position.y = getPlatformYPosition(other);
-        isOnPlatform = true;
-        break;
-      case 'Coin':
-        FlameAudio.play(Assets.coinSFX);
-        gameRef.score += 1;
+        PlatformGroup plat = other.parent as PlatformGroup;
+        double platformSize = other.size.y;
+        position.y = plat.position.y - platformSize / 2;
 
-        position.y = getPlatformYPosition(other);
         isOnPlatform = true;
-        other.removeFromParent();
         break;
       default:
         FlameAudio.play(Assets.deathSFX);
@@ -165,19 +161,6 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
   @override 
   void onCollisionEnd(PositionComponent other) {
     super.onCollisionEnd(other);
-    final type = other.runtimeType.toString();
-
-    if (type == 'PlatformGroup' || type == 'Coin') {
-      isOnPlatform = true;
-    }
-    else {
-      isOnPlatform = false;
-    }
-  }
-
-  double getPlatformYPosition(PositionComponent other) {
-    PlatformGroup plat = other.parent as PlatformGroup;
-    double platformSize = other.size.y;
-    return plat.position.y - platformSize / 2;
+    isOnPlatform = false;
   }
 }
