@@ -2,8 +2,10 @@ import 'dart:async';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:slime_fall/game/components/top_hitbox.dart';
+import 'package:slime_fall/game/constants/assets.dart';
 import 'package:slime_fall/game/constants/configuration.dart';
 import 'package:slime_fall/game/constants/position.dart';
 import 'package:slime_fall/game/components/background.dart';
@@ -29,6 +31,7 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
     mainMenuOpen();
     startGyroscopeListener();
     highScoreService = HighscoreService();
+    FlameAudio.bgm.play(Assets.backgroundMusic, volume: 0.2);
   }
 
   void startGyroscopeListener() {

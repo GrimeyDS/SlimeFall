@@ -9,4 +9,9 @@ class Assets {
   static const String platform = 'platform.png';
   static const String leftSpike = 'leftSpike.png';
   static const String rightSpike = 'rightSpike.png';
+
+  static const String backgroundMusic = 'background.mp3';
+  static const String dashSFX = 'dash.wav';
+  static const String deathSFX = 'death.wav';
+  static const String dashReadySFX = 'dashReady.wav';
 }
