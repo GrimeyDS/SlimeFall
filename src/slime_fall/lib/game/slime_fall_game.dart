@@ -73,8 +73,8 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
   }
 
   void createGame() {
-    interval = Timer(Config.platformInterval, repeat: true);
     Config.scrollSpeed = 150.0;
+    interval = Timer(Config.platformInterval, repeat: true);
     slime = Slime();
     gyroX = 0;
     gyroY = 0;
