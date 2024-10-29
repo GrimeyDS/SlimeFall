@@ -46,6 +46,10 @@
 
 [Scaffold](https://github.com/howest-gp-ipr/st-1-a-ee-project-SvenDS91/blob/dev/reports/research/Flutter.md#scaffold)
 
+[Dependency Injection](https://github.com/howest-gp-ipr/st-1-a-ee-project-SvenDS91/blob/dev/reports/research/Flutter.md#dependency-injection)
+  - [Toekennen](https://github.com/howest-gp-ipr/st-1-a-ee-project-SvenDS91/blob/dev/reports/research/Flutter.md#toekennen)
+  - [Injection](https://github.com/howest-gp-ipr/st-1-a-ee-project-SvenDS91/blob/dev/reports/research/Flutter.md#injection)
+
 ## Flame
 
 [Flame toevoegen aan project](https://github.com/howest-gp-ipr/st-1-a-ee-project-SvenDS91/blob/dev/reports/research/Flame.md#flame-toevoegen-aan-project)
