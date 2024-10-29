@@ -14,7 +14,7 @@ import 'package:slime_fall/game/components/spike/spike_group.dart';
 import 'package:slime_fall/game/components/player/slime.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'package:slime_fall/main.dart';
-import 'package:slime_fall/services/authentication/highscore/highscore_service_interface.dart';
+import 'package:slime_fall/services//highscore/highscore_service_interface.dart';
 
 class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
   // Interval to repeat platform spawning.

@@ -4,8 +4,8 @@ import 'package:get_it/get_it.dart';
 import 'package:slime_fall/app_state.dart';
 import 'package:slime_fall/services/authentication/authentication_service.dart';
 import 'package:slime_fall/services/authentication/authentication_service_interface.dart';
-import 'package:slime_fall/services/authentication/highscore/highscore_service.dart';
-import 'package:slime_fall/services/authentication/highscore/highscore_service_interface.dart';
+import 'package:slime_fall/services/highscore/highscore_service.dart';
+import 'package:slime_fall/services/highscore/highscore_service_interface.dart';
 
 final GetIt getIt = GetIt.instance;
 

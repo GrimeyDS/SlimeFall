@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:slime_fall/pages/components/game_title.dart';
 import 'package:slime_fall/pages/components/score_text.dart';
 import 'package:slime_fall/pages/components/submit_button.dart';
-import 'package:slime_fall/services/authentication/highscore/highscore_constants.dart';
+import 'package:slime_fall/services//highscore/highscore_constants.dart';
 
 class GameOverOverlay extends StatelessWidget {
   final VoidCallback onReset;
