@@ -42,6 +42,16 @@ Het voornaamste `PositionComponent` zal een `SpriteComponent` zijn. Hierbij laad
 
 ![image](https://github.com/user-attachments/assets/832ef0da-893c-4b04-ae93-688e99e54044)
 
+
+### SpriteAnimationComponent 
+Met een `SpriteAnimationComponent` kan je animatie toevoegen aan je sprite. Je gebruikt hierdoor meerdere sprites die verschillende frames voorstellen.
+In dit voorbeeld maken we een array aan en mappen we het nummer aan de image bestandsnaam. Deze worden van 1 keer ook toegekend aan onze sprite.
+
+Daarna ken je de animatie toe met de sprites die je zojuist hebt aangemaakt, de snelheid waarop hij de door een image/frame cycled en of de animatie moet loopen.
+
+![image](https://github.com/user-attachments/assets/cc42f27d-efe8-4e27-8737-ef58d0f73fac)
+
+
 ### ParallaxComponent
 Is een component dat je kan gebruiken om images te doen scrollen. Dit is enorm handing om achtergronden te maken die het effect geven dat het spelwereld beweegd.
 In dit voorbeeld die ik gebruik, bouw je een parallax op. 
