@@ -20,6 +20,7 @@ class StartScreenOverlay extends StatelessWidget {
       ),
       Center(
       child: Column(
+        // The column will only take as much space as it needs depending on children
         mainAxisSize: MainAxisSize.min,
         children: [
           const GameTitle(title: 'Start Game'),
