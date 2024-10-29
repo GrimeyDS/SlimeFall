@@ -35,6 +35,7 @@ class PlatformGroup extends PositionComponent with HasGameRef<SlimeFallGame> {
       Platform(width: rightPlatformWidth, platformPosition: Position.right)
     ]);
 
+    // Add random coin to a platform
     if (random.nextDouble() < 0.2) { 
       final collectible = Coin();
       collectible.position = Vector2(random.nextDouble() * screenWidth, -37);  // Position randomly on x-axis and slightly above the platform.
@@ -45,7 +46,7 @@ class PlatformGroup extends PositionComponent with HasGameRef<SlimeFallGame> {
   @override
   void update(double dt) {
     super.update(dt);
-    // Position of the group will change with the speed of the game. dt => ticks from the Flame Game.
+    // Position of the group will change with the scroll speed of the game. dt => ticks from the Flame Game.
     position.y -= Config.scrollSpeed * dt;
 
     if (position.y < -10) removeFromParent();
