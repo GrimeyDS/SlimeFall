@@ -21,3 +21,16 @@ Is een handig widget die het toelaat om meerdere widgets te wrappen. Een paar in
 De `Scaffold` klasse laat ons toe om verschillende UI elementen(buttons, text, ...) te combineren. Hierin bouw je, je effectieve UI met verschillende widgets. Een paar interessante properties:
 - `AppBar`: Hiermaa kan je de bovenste bar van je app aanpassen.
 - `body`: Hier plaats je alle widgets die toebehoren aan de pagina.
+
+## Dependency Injection
+In Flutter kan je ook dependency injection gebruiken maar dit is niet standaard ingebouwd in Flutter en je moet hiervoor een package installeren. nl  `getIt`.
+Met dit package ken je eerste de services toe en kan je ze later oproepen.
+
+## Toekennen
+Het is belangrijk dat we `WidgetsFlutterBinding.ensureInitialized();` gebruiken omdat we de firebase initialiseren in de main() functie. Hierdoor moet de flutter framework eerst geinitialiseerd zijn
+Met deze lijn `getIt.registerSingleton<IHighscoreService>(HighscoreService());` registeer je de dependency.
+
+![image](https://github.com/user-attachments/assets/328adf4c-b03d-4976-8690-db7bfee18d05)
+
+## Injection
+Het injecteren doe je dan gewoon met `late IHighscoreService highScoreService = getIt<IHighscoreService>();`. Deze hoeft niet meegeven worden in een constructor.
