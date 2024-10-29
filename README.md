@@ -53,13 +53,10 @@ Als ik meer tijd zou hebben zou ik nog het volgende implementeren:
     - Ingewikkeldere obstakels.
 
 ## Extra info
-Plaats hier de nodig informatie om het
-project te kunnen uitvoeren:
-
-- API keys of nodige secrets
-- Logingegevens
-- Database configuraties
-- ...
+- Login: Je kan altijd een gebruiker aanmaken en testen of inloggen via test@test.com, pw: Test12345
+- Database configuraties:
+![image](https://github.com/user-attachments/assets/5a85decb-659a-4fe1-b861-7847a992806f)
+- Code openen in visual studio code. Je zal wel flutter moeten [installeren](https://docs.flutter.dev/get-started/install/windows/mobile).
 
 ## Bronnenlijst
 - De officiele documentatie van [Flame](https://docs.flame-engine.org/latest/).
