@@ -41,7 +41,7 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
     // Default state.
     current = SlimeMovement.idle;
 
-    // Half of screen - bird x size
+    // Set slime to the top middle
     final double xStartingPosition = gameRef.size.x / 2 - size.x /2;
     position = Vector2(xStartingPosition, 100);
     lastPosition = xStartingPosition;
@@ -80,7 +80,7 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
       setFallingSlime();
     }
     else {
-      // Set to speed of the platforms so it stays on the platform it collided with.
+      // Set speed to scroll speed so it goes up with the platforms
       double newPosition = Config.scrollSpeed * dt;
       position.y -= newPosition;
       setPlatformSlime(newPosition);
@@ -96,8 +96,8 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
   void setPlatformSlime(double newPosition) {
       size = Config.slimeSize;
 
-      // Change sprite image depending on movement.
-      // A treshold that ensures the change between newPosition and lastPosition is significant enough before updating the movement state.
+      // Change sprite image depending left/right or idle movement.
+      // A treshold that ensures the change between newPosition and lastPosition is significant enough before updating the movement sprite.
       double deathZoneMovement = 0.1;
       if (newPosition < lastPosition - deathZoneMovement) {
         current = SlimeMovement.left;
@@ -135,7 +135,6 @@ class Slime extends SpriteGroupComponent<SlimeMovement>
   @override
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollisionStart(intersectionPoints, other);
-
 
     // Checking on type (eg. other is Platform) does not work due to group wrapper.
     final type = other.runtimeType.toString();
