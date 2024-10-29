@@ -66,6 +66,7 @@ Als ik meer tijd zou hebben zou ik nog het volgende implementeren:
 - De officiele documentatie van [Flutter](https://docs.flutter.dev/).
 - De officiele documentatie van [Dart](https://dart.dev/guides).
 - De officiele documentatie van [Firestore](https://firebase.google.com/docs/firestore).
+- De officiele documentatie van [getIt](https://pub.dev/packages/get_it/example)
 - Documentatie van [sensors_plus](https://pub.dev/packages/sensors_plus).
 - Dart [Conventions](https://dart.dev/effective-dart/style).
 - Dart file name [Conventions](https://dart.dev/tools/linter-rules/file_names).
