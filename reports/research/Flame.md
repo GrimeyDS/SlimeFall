@@ -159,3 +159,18 @@ Om de overlay te activeren op het scherm en ze ook te refreshen maak je gebruik 
 In dit voorbeeld refreshen we de overlay op elke game tick.
 
 ![image](https://github.com/user-attachments/assets/a24f5d47-32fb-4baa-acde-14d98195cfe3)
+
+## Flame Audio
+
+### Toevoegen aan het project
+Doe je met `flutter pub add flame_audio` in de terminal van visual studio code binnen het project. Dit zal een dependency toevoegen in het `pubspec.yaml` bestand.
+
+### Background OST
+Je roept hiervoor de onderstaande functie op met het audio bestand en de volume(bgm zal altijd loopen)
+
+![image](https://github.com/user-attachments/assets/4c88986a-103e-4952-abda-52afbc4417ff)
+
+### Soundclips
+Om een soundclip toe te voegen is nog gemakkelijker met de onderstaande functie waar je enkel het audio bestand aan mee geeft. Pasop dat je dit niet te veel keer achter elkaar oproept, de app kan crashen :)
+
+![image](https://github.com/user-attachments/assets/203d91be-1ff5-4e27-a51a-eb3a6ca111c3)
