@@ -13,8 +13,8 @@ import 'package:slime_fall/game/components/platform/platform_group.dart';
 import 'package:slime_fall/game/components/spike/spike_group.dart';
 import 'package:slime_fall/game/components/player/slime.dart';
 import 'package:sensors_plus/sensors_plus.dart';
-import 'package:slime_fall/services/authentication/highscore/highscore_service.dart';
-import 'package:slime_fall/services/authentication/highscore/highscore_service_interface.dart';
+import 'package:slime_fall/main.dart';
+import 'package:slime_fall/services/highscore/highscore_service_interface.dart';
 
 class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
   // Interval to repeat platform spawning.
@@ -24,13 +24,12 @@ class SlimeFallGame extends FlameGame with HasCollisionDetection, TapDetector {
   late double gyroY;
   late int score;
   int highScore = 0;
-  late IHighscoreService highScoreService;
+  late IHighscoreService highScoreService = getIt<IHighscoreService>();
 
   @override
   Future<void> onLoad() async {
     mainMenuOpen();
     startGyroscopeListener();
-    highScoreService = HighscoreService();
     FlameAudio.bgm.play(Assets.backgroundMusic, volume: 0.2);
   }
 

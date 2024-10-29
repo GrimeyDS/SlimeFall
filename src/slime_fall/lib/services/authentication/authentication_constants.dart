@@ -1,6 +1,7 @@
 class AuthConstants {
     static const String unableToLogin = 'Was not able to login user: ';
     static const String unableToRegister = 'Was not able to register user: ';
+    static const String emptyEmailOrPassword = 'Email and/or password is empty';
 
     static const String registerSuccess = 'Registration successful, please login!';
     static const String standardLoginError = 'Could not login, make sure your email and password are correct';
