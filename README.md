@@ -63,6 +63,7 @@ project te kunnen uitvoeren:
 
 ## Bronnenlijst
 - De officiele documentatie van [Flame](https://docs.flame-engine.org/latest/).
+- De officiele documentatie van [Flame Audio](https://pub.dev/packages/flame_audio/example).
 - De officiele documentatie van [Flutter](https://docs.flutter.dev/).
 - De officiele documentatie van [Dart](https://dart.dev/guides).
 - De officiele documentatie van [Firestore](https://firebase.google.com/docs/firestore).
