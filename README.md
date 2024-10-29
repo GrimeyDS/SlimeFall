@@ -18,7 +18,9 @@ Je score wordt bepaald op tijd die verstreken is. Je kan inloggen via Firebase e
 De obstakels zullen vrij simpel zijn maar de moeilijkheid zal zitten in de frequentie dat ze opdagen. Hoe verder je zit in het spel, hoe sneller de obstakels komen. Aan de zijkant van de muren zullen er ook spikes aanwezig zijn.
 
 ### Controls
-Via gyro kan je links/rechts/omhoog/omlaag manoeuvreren. Dashen/springen over een object zou ik graag met een shake beweging willen realiseren. Indien dit niet lukt zal het een knop op het scherm worden.
+Via gyro kan je links/rechts/omhoog/omlaag manoeuvreren. Dashen/springen over een object zou ik graag met een shake beweging willen realiseren. Indien dit niet lukt zal het een knop op het scherm worden. \
+- Update: Shaken met al gyrocontrols om te bewegen is geen ideale oplossing. Er kan gedashed worden met een tap op het scherm
+- Update: Beweging omhoog en omlaag is niet nodig voor de game flow/functionaliteit. Kan verwezenlijkt door ook de gyro te checken rond de x-axis. Code staat in comment bij de gyro listener [lijn 42](https://github.com/howest-gp-ipr/st-1-a-ee-project-SvenDS91/blob/dev/src/slime_fall/lib/game/slime_fall_game.dart)
 
 ### Audio/Visueel
 De game bevat sprites.
