@@ -3,8 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:slime_fall/firebase_options.dart';
 import 'package:slime_fall/main.dart';
 import 'package:slime_fall/services/authentication/authentication_service_interface.dart';
-import 'package:slime_fall/services//highscore/highscore_constants.dart';
-import 'package:slime_fall/services//highscore/highscore_service_interface.dart';
+import 'package:slime_fall/services/highscore/highscore_constants.dart';
+import 'package:slime_fall/services/highscore/highscore_service_interface.dart';
 
 class HighscoreService implements IHighscoreService {
   late IAuthenticationService authService = getIt<IAuthenticationService>();
