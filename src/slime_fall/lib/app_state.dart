@@ -10,7 +10,6 @@ import 'package:slime_fall/game/overlays/score_overlay.dart';
 import 'package:slime_fall/main.dart';
 import 'package:slime_fall/game/constants/configuration.dart';
 import 'package:slime_fall/services/authentication/authentication_constants.dart';
-import 'package:slime_fall/services/authentication/authentication_service.dart';
 import 'package:slime_fall/services/authentication/authentication_service_interface.dart';
 
 class AppState extends State<GameApp> {
@@ -18,8 +17,7 @@ class AppState extends State<GameApp> {
   bool isRegistering = false;
   bool isLoading = false;
   String errorMessage = '';
-
-  final IAuthenticationService authService = AuthenticationService();
+  late final IAuthenticationService authService = getIt<IAuthenticationService>();
 
   Future<void> handleLogin(String email, String password) async {
     try {
