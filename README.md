@@ -7,8 +7,6 @@ Voor mijn project zou ik graag een kleine game maken in Dart/Flutter met de game
 Het zou een auto-scroll game zijn waarbij het scherm naar beneden scrollt. De speler is een object/figuur die via gyro controls manoeuvreert. Je kan hierbij naar links/rechts manoeuvreren, maar ook sneller naar beneden of terug naar boven gaan. Obstakels zullen je proberen tegen te houden en het is “game over” als de speler de bovenkant van het scherm aanraakt of de spikes aan de zijkant.
 Omdat gyrocontroles  soms moeilijk zijn zou er ook een gesture of knop zijn om te springen/dashen over/door een obstakel die een cooldown heeft gebaseerd op tijd of punten.
 
-![image](https://github.com/user-attachments/assets/d32f0a4c-2c00-4646-9dff-26320acd2d6c)
-
 ## Inhoud demo/prototype
 
 ### Score
@@ -20,7 +18,7 @@ De obstakels zullen vrij simpel zijn maar de moeilijkheid zal zitten in de frequ
 ### Controls
 Via gyro kan je links/rechts/omhoog/omlaag manoeuvreren. Dashen/springen over een object zou ik graag met een shake beweging willen realiseren. Indien dit niet lukt zal het een knop op het scherm worden. \
 - Update: Shaken met al gyrocontrols om te bewegen is geen ideale oplossing. Er kan gedashed worden met een tap op het scherm
-- Update: Beweging omhoog en omlaag is niet nodig voor de game flow/functionaliteit. Kan verwezenlijkt door ook de gyro te checken rond de x-axis. Code staat in comment bij de gyro listener [lijn 42](https://github.com/howest-gp-ipr/st-1-a-ee-project-SvenDS91/blob/dev/src/slime_fall/lib/game/slime_fall_game.dart)
+- Update: Beweging omhoog en omlaag is niet nodig voor de game flow/functionaliteit. Kan verwezenlijkt door ook de gyro te checken rond de x-axis. Code staat in comment bij de gyro listener.
 
 ### Audio/Visueel
 De game bevat sprites.
@@ -55,9 +53,6 @@ Als ik meer tijd zou hebben zou ik nog het volgende implementeren:
     - Ingewikkeldere obstakels.
 
 ## Extra info
-- Login: Je kan altijd een gebruiker aanmaken en testen of inloggen via test@test.com, pw: Test12345
-- Database configuraties:
-![image](https://github.com/user-attachments/assets/5a85decb-659a-4fe1-b861-7847a992806f)
 - Code openen in visual studio code. Je zal wel flutter moeten [installeren](https://docs.flutter.dev/get-started/install/windows/mobile).
 
 ## Bronnenlijst
